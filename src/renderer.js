@@ -74,30 +74,32 @@ async function getBrowser({ executablePath } = {}) {
   if (browserPromise) return browserPromise;
   // Lazy-load the heavy deps so a consumer that never renders pays nothing.
   const puppeteer = (await import('puppeteer-core')).default;
-  let exec = executablePath;
-  if (!exec) {
-    // In serverless: use @sparticuz/chromium (bundles the binary + shim libs
-    // for AWS Lambda / Vercel). The -min variant exists for size but requires
-    // libnss3 already on the host, which Vercel doesn't provide.
-    // In local dev: callers should set PUPPETEER_EXECUTABLE_PATH or pass
-    // executablePath explicitly so we don't load the bundled Linux binary.
-    if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-      exec = process.env.PUPPETEER_EXECUTABLE_PATH;
-    } else {
-      const chromium = (await import('@sparticuz/chromium')).default;
-      exec = await chromium.executablePath();
-    }
+
+  // Two paths:
+  //  - Local dev (PUPPETEER_EXECUTABLE_PATH set): use a system Chrome
+  //    with a minimal args set. Fast, no binary extraction.
+  //  - Serverless (Vercel/Lambda): use @sparticuz/chromium. Critical to
+  //    use its `args` array — it includes --single-process, --no-zygote,
+  //    --use-gl=angle, --use-angle=swiftshader, and other flags required
+  //    for the bundled binary + extracted shim libraries to work. Without
+  //    them you hit libnss3 / GPU / sandbox failures.
+  if (process.env.PUPPETEER_EXECUTABLE_PATH || executablePath) {
+    const exec = executablePath || process.env.PUPPETEER_EXECUTABLE_PATH;
+    browserPromise = puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none', '--disable-gpu'],
+      executablePath: exec,
+      headless: true,
+    });
+  } else {
+    const chromium = (await import('@sparticuz/chromium')).default;
+    const exec = await chromium.executablePath();
+    browserPromise = puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: exec,
+      headless: chromium.headless,
+    });
   }
-  browserPromise = puppeteer.launch({
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--font-render-hinting=none',
-      '--disable-gpu',
-    ],
-    executablePath: exec,
-    headless: true,
-  });
   return browserPromise;
 }
 
