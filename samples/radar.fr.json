@@ -1,0 +1,115 @@
+{
+  "language": "en",
+  "edition": "smb",
+  "orgName": "Sample Quebec SMB",
+  "contextAnswers": { "CQ1": "a", "CQ2": "b", "CQ3": "a", "CQ4": "c", "CQ5": "b", "CQ6": "d" },
+  "results": {
+    "overallScore": 50,
+    "overallLabel": "developing"
+  },
+  "executive": {
+    "strengthHeadline": "Your strength in Technology & Operations is a genuine asset",
+    "strengthBody": "— that foundation accelerates everything else.",
+    "introBody": "You're building real foundations across all six domains. The work ahead is converting initial structures into formal, documented, owned processes."
+  },
+  "domains": [
+    {
+      "name": "Technology & Operations",
+      "score": 50,
+      "maturityLabel": "developing",
+      "iso": "Clause 8 (Operation), Annex A.6 (AI System Life Cycle), A.9 (Use of AI Systems)",
+      "actions": [
+        { "tier": "priority", "title": "Implement human oversight proportional to risk.", "body": "Not every AI output needs human review, but high-stakes decisions do. Define clear criteria for oversight requirements.", "quickWin": "Classify your AI use cases by risk level and define the oversight requirement for each.", "iso": "ISO 42001: Annex A.9.4 — Human oversight" },
+        { "tier": "next", "title": "Build lifecycle management into AI operations.", "body": "AI systems aren't \"deploy and forget.\" They need monitoring, revalidation, updates, and eventually retirement.", "quickWin": "Schedule the first review of your longest-running AI system.", "iso": "ISO 42001: Annex A.6.2" },
+        { "tier": "foundation", "title": "Create a simple \"approved tools\" list.", "body": "You don't need to block AI — you need to guide it. Define which AI tools are approved, for what purposes, and with what guardrails.", "quickWin": "Publish an \"Approved AI Tools\" list with 2–3 tools and basic usage guidelines.", "iso": "ISO 42001: Annex A.9.2" }
+      ]
+    },
+    {
+      "name": "People & Culture",
+      "score": 50,
+      "maturityLabel": "developing",
+      "iso": "Clause 7 (Support), Annex A.4 (Resources for AI Systems)",
+      "actions": [
+        { "tier": "priority", "title": "Move from ad hoc learning to a structured AI competency framework.", "body": "Define what \"AI-literate\" means for each role in your organization. Not everyone needs the same depth.", "quickWin": "Define AI competency expectations for 3 key roles in your organization.", "iso": "ISO 42001: Clause 7.2 — Competence" },
+        { "tier": "next", "title": "Invest in change management for AI adoption.", "body": "Technical readiness without cultural readiness fails. Address fears, communicate transparently about AI's role.", "quickWin": "Run an anonymous survey: \"How do you feel about AI in our workplace?\" Use results to tailor communication.", "iso": "ISO 42001: Clause 7.3 — Awareness" },
+        { "tier": "foundation", "title": "Identify your AI champions.", "body": "There are people in your organization already curious about AI. Find them, support them, and let them lead by example.", "quickWin": "Identify 2–3 AI-curious employees and give them time and license to explore AI tools relevant to their roles.", "iso": "ISO 42001: Annex A.4.2" }
+      ]
+    },
+    {
+      "name": "Data Readiness",
+      "score": 50,
+      "maturityLabel": "developing",
+      "iso": "Clause 8 (Operation), Annex A.7 (Data for AI Systems)",
+      "actions": [
+        { "tier": "priority", "title": "Establish data quality standards with AI use cases in mind.", "body": "Define what \"good enough for AI\" means for your key datasets: completeness, accuracy, timeliness, consistency.", "quickWin": "Define data quality thresholds for one dataset you plan to use with AI.", "iso": "ISO 42001: Annex A.7.3" },
+        { "tier": "next", "title": "Implement data provenance and lineage tracking for AI-critical data.", "body": "As you scale AI, you need to trace data from source to decision. This supports transparency, debugging, and regulatory compliance.", "quickWin": "Document the complete data lineage for your most important AI system.", "iso": "ISO 42001: Annex A.7.4 — Data provenance" },
+        { "tier": "foundation", "title": "Clean and organize your most valuable business data first.", "body": "You don't need perfect data everywhere. Identify the 2–3 datasets most relevant to your business and focus your governance efforts there.", "quickWin": "Pick your most important dataset and address its most obvious quality issues.", "iso": "ISO 42001: Annex A.7.3" }
+      ]
+    },
+    {
+      "name": "Strategy & Leadership",
+      "score": 50,
+      "maturityLabel": "developing",
+      "iso": "Clause 5 (Leadership), Annex A.2 (AI Policies)",
+      "actions": [
+        { "tier": "priority", "title": "Formalize AI governance ownership.", "body": "Without clear ownership, AI governance becomes everyone's concern and no one's responsibility. Assign a specific person or function.", "quickWin": "Designate an AI governance lead with a defined mandate, even if it's a partial role.", "iso": "ISO 42001: Clause 5.3" },
+        { "tier": "next", "title": "Connect your AI strategy to measurable business outcomes.", "body": "You have the structure — now ensure it drives results. Define 3–5 KPIs that link AI initiatives to business value.", "quickWin": "Identify one AI initiative and define how you'll measure its business impact in the next quarter.", "iso": "ISO 42001: Clause 6.2" },
+        { "tier": "foundation", "title": "Move from informal AI conversations to a documented position.", "body": "A one-page \"AI Intent Document\" stating what AI means for your business, what you will and won't use it for, and who makes AI decisions is a powerful starting point.", "quickWin": "Draft a 1-page AI Intent Document and share it with your team.", "iso": "ISO 42001: Clause 5.2 — AI policy" }
+      ]
+    },
+    {
+      "name": "Governance & Risk",
+      "score": 50,
+      "maturityLabel": "developing",
+      "iso": "Clause 6 (Planning), Clause 10 (Improvement), Annex A.3, A.5",
+      "actions": [
+        { "tier": "priority", "title": "Establish a formal AI impact assessment process.", "body": "Before deploying AI in decisions that affect people, run a structured assessment: who's affected, what could go wrong, how do you detect it, what's the fallback?", "quickWin": "Create an AI impact assessment template and pilot it on your next AI deployment.", "iso": "ISO 42001: Annex A.5.3" },
+        { "tier": "next", "title": "Build a simple incident response playbook for AI failures.", "body": "When (not if) an AI system produces a bad outcome, your team should know: who to call, what to document, how to communicate with affected parties.", "quickWin": "Draft a 1-page AI incident response card for your most-used AI system.", "iso": "ISO 42001: Clause 10.1" },
+        { "tier": "foundation", "title": "Conduct a simple AI risk brainstorm.", "body": "Gather key staff for 90 minutes. For each AI tool you use, ask: \"What's the worst that could happen? What would we do?\" Document the answers.", "quickWin": "Run the risk brainstorm session and document the output in a shared document.", "iso": "ISO 42001: Clause 6.1, Annex A.5" }
+      ]
+    },
+    {
+      "name": "Ethics, Transparency & Trust",
+      "score": 50,
+      "maturityLabel": "developing",
+      "iso": "Clause 9, Annex A.8 (Information for Interested Parties), A.10 (Third-Party)",
+      "actions": [
+        { "tier": "priority", "title": "Assess your third-party AI supply chain.", "body": "Your AI risk extends to every vendor whose AI you use. What data do they access? How do their models work?", "quickWin": "Review the terms of service and data handling practices of your top 3 AI vendors.", "iso": "ISO 42001: Annex A.10.2" },
+        { "tier": "next", "title": "Implement AI performance monitoring with ethical indicators.", "body": "Track not just whether AI works, but whether it works fairly. Bias metrics and stakeholder satisfaction measurements should complement your operational KPIs.", "quickWin": "Add one fairness metric to your monitoring dashboard for your highest-impact AI system.", "iso": "ISO 42001: Clause 9.1, Annex A.8.4" },
+        { "tier": "foundation", "title": "Write a simple \"Our approach to AI\" statement.", "body": "Something your customers and employees can read. Not legal jargon — plain language about how you use AI.", "quickWin": "Draft a 1-paragraph \"How We Use AI\" statement for your website or employee handbook.", "iso": "ISO 42001: Annex A.8.3" }
+      ]
+    }
+  ],
+  "priorityActions": [
+    { "domainName": "Technology & Operations", "score": 50, "recommendation": { "headline": "Implement human oversight proportional to risk.", "quickWin": "Classify your AI use cases by risk level and define the oversight requirement for each." } },
+    { "domainName": "People & Culture", "score": 50, "recommendation": { "headline": "Move from ad hoc learning to a structured AI competency framework.", "quickWin": "Define AI competency expectations for 3 key roles in your organization." } },
+    { "domainName": "Data Readiness", "score": 50, "recommendation": { "headline": "Establish data quality standards with AI use cases in mind.", "quickWin": "Define data quality thresholds for one dataset you plan to use with AI." } }
+  ],
+  "funding": {
+    "eligible": [
+      { "name": "ESSOR — Sous-volet 1B (Diagnostic numérique)", "summary": "Non-repayable Quebec grant for digital diagnostics — open to all sectors.", "amount": "Up to $20,000", "lastVerified": "2026-04-27" },
+      { "name": "ESSOR — Sous-volet 1C (Mise en œuvre)", "summary": "Quebec funding to implement your digital plan — open to all sectors.", "amount": "Up to $50,000", "lastVerified": "2026-04-27" },
+      { "name": "NRC IRAP (Industrial Research Assistance Program)", "summary": "Federal non-repayable funding for innovative AI SME projects.", "amount": "$75K–$200K+", "lastVerified": "2026-04-27" },
+      { "name": "Regional AI Initiative (RAII)", "summary": "Federal funding for AI commercialization and adoption projects.", "amount": "$250K–$5M per project", "lastVerified": "2026-04-27" },
+      { "name": "SR&ED (Scientific Research & Experimental Development)", "summary": "Federal tax credit for R&D activities including AI development.", "amount": "Up to 35% refundable", "lastVerified": "2026-04-27" },
+      { "name": "Quebec CRIC (Crédit d'impôt R-D, innovation et précommercialisation)", "summary": "Quebec provincial innovation tax credit, distinct from the older C3i.", "amount": "30% on first $1M R&D", "lastVerified": "2026-04-27" }
+    ],
+    "investigate": [
+      { "name": "CDAE-IA (Crédit d'impôt — affaires électroniques + IA)", "summary": "Quebec AI salary tax credit for IT/software firms with significant AI integration.", "amount": "22% refundable + 8% non-ref.", "lastVerified": "2026-04-27", "note": "Requires significant AI integration in e-business activities, plus 75%+ revenue from IT and 50%+ from software development. As your AI use deepens, this credit may apply." },
+      { "name": "AI Compute Access Fund", "summary": "Federal subsidized access to high-performance AI computing.", "amount": "$100K–$5M per grant", "lastVerified": "2026-04-27", "note": "Most relevant for organizations with active AI development requiring significant compute resources. Currently closed; monitor for the next call." }
+    ]
+  },
+  "loi25": {
+    "score": 33.3,
+    "maturityLabel": "awareButUnprepared",
+    "verdictBody": "Awareness without operational readiness. The work is converting \"we know we should\" into \"we have a documented procedure and a named owner.\""
+  },
+  "loi25Questions": [
+    { "shortLabel": "Data minimization", "title": "What data is actually necessary?", "article": "Art. 4, Art. 5", "score": 0, "responseText": "We collect whatever data is available; there is no documented constraint on what is necessary.", "nextStep": "For your most-used AI tool: list the data fields, decide which are actually necessary, and ask the vendor how to disable the rest." },
+    { "shortLabel": "Person responsible", "title": "Make the named person publicly findable.", "article": "Art. 3.1", "score": 2, "responseText": "A person has been named internally, but their identity is not published on our website or in our privacy policy.", "nextStep": "Add the name and contact email to your website privacy policy and your email signature template." },
+    { "shortLabel": "Breach notification", "title": "CAI reporting playbook.", "article": "Art. 3.5–3.7", "score": 2, "responseText": "We have a general incident process but it does not specifically address Loi 25's \"risk of serious harm\" assessment or CAI notification timing.", "nextStep": "Schedule a 30-minute tabletop with the named person + 2 staff. Document where the playbook broke down." },
+    { "shortLabel": "Automated decisions", "title": "Tighten reasons-on-demand response time.", "article": "Art. 12.1", "score": 2, "responseText": "We could produce the explanation within a few business days for some systems but not all.", "nextStep": "For the slowest-to-explain system: build a 1-page template that captures the recurring fields. Future requests become fill-in-the-blank." },
+    { "shortLabel": "Cross-border transfer", "title": "Where does your data actually live?", "article": "Art. 17", "score": 0, "responseText": "We have not considered where our AI vendors process or store data.", "nextStep": "List your top 10 AI tools and check the data residency clause in each vendor's terms. Note which ones store/process data outside Quebec." },
+    { "shortLabel": "Incidents register", "title": "Keep the register current.", "article": "Art. 3.8", "score": 2, "responseText": "We have a register, but it is incomplete or not regularly updated.", "nextStep": "Block a recurring monthly 30-minute calendar slot for the named person to update the register." }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "language": "fr",
+  "edition": "smb",
+  "orgName": "Nord Paradigm Test",
+  "contextAnswers": { "CQ1": "a", "CQ2": "a", "CQ3": "a", "CQ4": "b", "CQ5": "d", "CQ6": "e" },
+  "results": {
+    "overallScore": 79,
+    "overallLabel": "implementing"
+  },
+  "executive": {
+    "strengthHeadline": "Votre force en Gouvernance et risques (84 %) est un véritable atout — cette fondation accélère tout le reste.",
+    "strengthBody": "",
+    "introBody": "Vous bâtissez de réelles fondations dans les six domaines. Le travail à venir consiste à transformer les structures initiales en processus formels, documentés, dotés de responsables."
+  },
+  "domains": [
+    {
+      "name": "Technologie et opérations",
+      "score": 79,
+      "maturityLabel": "implementing",
+      "iso": "Clause 8 (Exploitation), Annexe A.6 (Cycle de vie des systèmes IA), A.9 (Utilisation)",
+      "actions": [
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Intégrez la gestion du cycle de vie dans vos opérations IA.", "body": "Les systèmes IA ne sont pas « déployer-et-oublier ». Ils nécessitent surveillance, revalidation, mises à jour et éventuellement mise hors service.", "quickWin": "Planifiez la première révision de votre système IA en service depuis le plus longtemps.", "iso": "ISO 42001 : Annexe A.6.2" },
+        { "tier": "next", "tierLabel": "Étape suivante", "title": "Optimisez la modélisation opérationnelle humain-IA.", "body": "À ce niveau de maturité, l'enjeu n'est plus le déploiement mais l'orchestration : qui décide quoi, quand un humain reprend la main, comment se documente la passation.", "quickWin": "Cartographiez les points de bascule humain-IA dans vos trois flux les plus critiques.", "iso": "ISO 42001 : Annexe A.9.4" },
+        { "tier": "foundation", "tierLabel": "Fondation", "title": "Maintenez en place une gouvernance proportionnée au risque.", "body": "Avec un haut niveau de maturité, le risque est de glisser vers la complaisance. Maintenez un comité IA actif avec un mandat clair de surveillance et de révision périodique.", "quickWin": "Programmez une révision trimestrielle du registre IA avec votre comité de gouvernance.", "iso": "ISO 42001 : Clause 5.3" }
+      ]
+    },
+    {
+      "name": "Personnel et culture",
+      "score": 67,
+      "maturityLabel": "implementing",
+      "iso": "Clause 7 (Soutien), Annexe A.4 (Ressources)",
+      "actions": [
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Investissez dans la gestion du changement pour l'adoption de l'IA.", "body": "La préparation technique sans préparation culturelle est vouée à l'échec. Abordez les craintes, communiquez avec transparence sur le rôle de l'IA.", "quickWin": "Lancez un sondage anonyme : « Comment percevez-vous l'IA dans notre milieu de travail? »", "iso": "ISO 42001 : Clause 7.3" },
+        { "tier": "next", "tierLabel": "Étape suivante", "title": "Bâtissez une organisation apprenante autour de l'IA.", "body": "Partagez ouvertement les réussites et les échecs liés à l'IA. Créez des communautés de pratique internes.", "quickWin": "Lancez un canal interne ou un bulletin « Leçons tirées de l'IA ».", "iso": "ISO 42001 : Clause 10.2" },
+        { "tier": "foundation", "tierLabel": "Fondation", "title": "Passez d'un apprentissage ponctuel à un cadre structuré de compétences en IA.", "body": "Définissez ce que signifie « littératie en IA » pour chaque rôle dans votre organisation. Tout le monde n'a pas besoin du même niveau d'approfondissement.", "quickWin": "Définissez les attentes en matière de compétences IA pour 3 rôles clés de votre organisation.", "iso": "ISO 42001 : Clause 7.2" }
+      ]
+    },
+    {
+      "name": "Maturité des données",
+      "score": 79,
+      "maturityLabel": "implementing",
+      "iso": "Clause 8 (Exploitation), Annexe A.7 (Données pour les systèmes IA)",
+      "actions": [
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Mettez en place la suivi de la provenance et de la lignée de données pour les données critiques pour l'IA.", "body": "À mesure que vous mettez l'IA à l'échelle, vous devez tracer les données de la source jusqu'à la décision. Cela soutient la transparence, le débogage et la conformité réglementaire.", "quickWin": "Documentez la lignée complète des données pour votre système IA le plus important.", "iso": "ISO 42001 : Annexe A.7.4 — Provenance des données" },
+        { "tier": "next", "tierLabel": "Étape suivante", "title": "Créez des boucles de rétroaction continue pour la performance des systèmes d'IA basés sur les données.", "body": "Surveillez la dérive des modèles, la qualité des prédictions et l'impact opérationnel. Établissez des seuils de réentraînement automatique pour les systèmes critiques.", "quickWin": "Mettez en place un tableau de bord de surveillance pour vos deux systèmes IA les plus importants.", "iso": "ISO 42001 : Annexe A.6.2" },
+        { "tier": "foundation", "tierLabel": "Fondation", "title": "Établissez des normes de qualité des données en tenant compte des cas d'utilisation de l'IA.", "body": "Définissez ce que « assez bon pour l'IA » signifie pour vos jeux de données clés : exhaustivité, exactitude, actualité, cohérence. Les standards écrits empêchent les dérives silencieuses.", "quickWin": "Définissez les seuils de qualité des données pour un jeu de données que vous prévoyez d'utiliser avec l'IA.", "iso": "ISO 42001 : Annexe A.7.3" }
+      ]
+    },
+    {
+      "name": "Stratégie et leadership",
+      "score": 79,
+      "maturityLabel": "implementing",
+      "iso": "Clause 5 (Leadership), Annexe A.2 (Politiques IA)",
+      "actions": [
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Reliez votre stratégie IA à des résultats d'affaires mesurables.", "body": "Vous avez la structure — assurez-vous maintenant qu'elle génère des résultats. Définissez 3 à 5 indicateurs de performance reliant vos initiatives IA à la valeur d'affaires.", "quickWin": "Identifiez une initiative IA et définissez comment vous en mesurerez l'impact d'affaires au prochain trimestre.", "iso": "ISO 42001 : Clause 6.2" },
+        { "tier": "next", "tierLabel": "Étape suivante", "title": "Formalisez la gouvernance et la cadence de révision stratégique.", "body": "Passez d'une gouvernance ad hoc à un rythme de révision défini : mensuel pour les KPIs, trimestriel pour la stratégie, annuel pour la mise à jour des politiques.", "quickWin": "Établissez un comité directeur IA et planifiez la première session avec un ordre du jour structuré.", "iso": "ISO 42001 : Clause 9.3" },
+        { "tier": "foundation", "tierLabel": "Fondation", "title": "Formalisez la responsabilité de la gouvernance de l'IA.", "body": "Sans responsabilité claire, la gouvernance de l'IA devient l'affaire de tous et la responsabilité de personne. Désignez une personne ou une fonction précise.", "quickWin": "Désignez un responsable de la gouvernance de l'IA avec un mandat défini, même à temps partiel.", "iso": "ISO 42001 : Clause 5.3" }
+      ]
+    },
+    {
+      "name": "Gouvernance et risques",
+      "score": 84,
+      "maturityLabel": "optimizing",
+      "iso": "Clause 6 (Planification), Clause 10 (Amélioration), Annexe A.3, A.5",
+      "actions": [
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Passez de la gestion des risques à l'intelligence des risques.", "body": "Utilisez vos données de gouvernance pour anticiper les risques émergents avant qu'ils ne se concrétisent. Intégrez les leçons tirées des incidents dans votre méthodologie d'évaluation des risques.", "quickWin": "Passez en revue vos 3 derniers incidents IA et identifiez une amélioration systémique à apporter à votre processus d'évaluation des risques.", "iso": "ISO 42001 : Clause 10.2" },
+        { "tier": "foundation", "tierLabel": "Fondation", "title": "Élaborez un guide de réponse aux incidents simple pour les défaillances de l'IA.", "body": "Quand (et non si) un système d'IA produit un mauvais résultat, votre équipe doit savoir : qui appeler, quoi documenter, comment communiquer avec les parties touchées.", "quickWin": "Rédigez une fiche de réponse aux incidents IA d'une page pour votre système d'IA le plus utilisé.", "iso": "ISO 42001 : Clause 10.1" }
+      ]
+    },
+    {
+      "name": "Éthique, transparence et confiance",
+      "score": 59,
+      "maturityLabel": "developing",
+      "iso": "Clause 9, Annexe A.8 (Information aux parties intéressées), A.10 (Tiers)",
+      "actions": [
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Évaluez votre chaîne d'approvisionnement IA tierce.", "body": "Votre risque IA s'étend à chaque fournisseur dont vous utilisez l'IA. Quelles données accèdent-ils? Comment fonctionnent leurs modèles?", "quickWin": "Révisez les conditions d'utilisation et les pratiques de gestion des données de vos 3 principaux fournisseurs IA.", "iso": "ISO 42001 : Annexe A.10.2" },
+        { "tier": "next", "tierLabel": "Étape suivante", "title": "Mettez en place une surveillance de la performance IA avec des indicateurs éthiques.", "body": "Suivez non seulement si l'IA fonctionne, mais si elle fonctionne équitablement. Les métriques de biais et de satisfaction des parties prenantes devraient compléter vos KPIs opérationnels.", "quickWin": "Ajoutez une métrique d'équité à votre tableau de bord de surveillance pour votre système IA à plus fort impact.", "iso": "ISO 42001 : Clause 9.1" },
+        { "tier": "foundation", "tierLabel": "Fondation", "title": "Rédigez une déclaration simple « Notre approche de l'IA ».", "body": "Quelque chose que vos clients et employés peuvent lire. Pas du jargon juridique — un langage clair sur la façon dont vous utilisez l'IA.", "quickWin": "Rédigez une déclaration d'un paragraphe « Comment nous utilisons l'IA » pour votre site Web ou votre manuel des employés.", "iso": "ISO 42001 : Annexe A.8.3" }
+      ]
+    }
+  ],
+  "priorityActions": [
+    { "domainName": "Éthique, transparence et confiance", "score": 59, "recommendation": { "headline": "Évaluez votre chaîne d'approvisionnement IA tierce.", "quickWin": "Révisez les conditions d'utilisation et les pratiques de gestion des données de vos 3 principaux fournisseurs IA." } },
+    { "domainName": "Personnel et culture", "score": 67, "recommendation": { "headline": "Investissez dans la gestion du changement pour l'adoption de l'IA.", "quickWin": "Lancez un sondage anonyme : « Comment percevez-vous l'IA dans notre milieu de travail? »" } },
+    { "domainName": "Technologie et opérations", "score": 79, "recommendation": { "headline": "Intégrez la gestion du cycle de vie dans vos opérations IA.", "quickWin": "Planifiez la première révision de votre système IA en service depuis le plus longtemps." } }
+  ],
+  "funding": {
+    "eligible": [
+      { "name": "ESSOR — Sous-volet 1B (Diagnostic numérique)", "summary": "Subvention québécoise non remboursable pour les diagnostics numériques — ouverte à tous les secteurs.", "amount": "Jusqu'à 20 000 $", "lastVerified": "2026-04-27" },
+      { "name": "ESSOR — Sous-volet 1C (Mise en œuvre)", "summary": "Financement québécois pour mettre en œuvre votre plan numérique — ouvert à tous les secteurs.", "amount": "Jusqu'à 50 000 $", "lastVerified": "2026-04-27" },
+      { "name": "CNRC PARI (Programme d'aide à la recherche industrielle)", "summary": "Financement fédéral non remboursable pour les projets IA des PME.", "amount": "75 000 $ – 200 000 $+ pour les premières demandes des PME", "lastVerified": "2026-04-27" },
+      { "name": "Initiative régionale en intelligence artificielle (IRIA)", "summary": "Financement fédéral pour la commercialisation et l'adoption de l'IA.", "amount": "250 000 $ – 5 M$ par projet", "lastVerified": "2026-04-27" },
+      { "name": "RS&DE (Recherche scientifique et développement expérimental)", "summary": "Crédit d'impôt fédéral pour les activités de R&D incluant l'IA.", "amount": "Jusqu'à 35 % remboursable sur les premiers 6 M$ de R&D (crédit max 2,1 M$)", "lastVerified": "2026-04-27" },
+      { "name": "Quebec CRIC (Crédit d'impôt R-D, innovation et précommercialisation)", "summary": "Crédit d'impôt provincial québécois pour l'innovation, distinct de l'ancien C3i.", "amount": "30 % sur le premier 1 M$ de R&D", "lastVerified": "2026-04-27" }
+    ],
+    "investigate": [
+      { "name": "CDAE-IA (Crédit d'impôt — affaires électroniques + IA)", "summary": "Crédit d'impôt québécois sur les salaires IA pour les entreprises TI/logiciels avec intégration significative de l'IA.", "amount": "22 % remboursable + 8 % non remboursable sur les salaires admissibles", "lastVerified": "2026-04-27", "note": "Le CDAE-IA exige une intégration significative de l'IA dans les activités d'affaires électroniques, ainsi que 75 %+ des revenus en TI et 50 %+ en développement ou édition de logiciels." },
+      { "name": "Fonds d'accès au calcul IA", "summary": "Accès fédéral subventionné au calcul haute performance pour l'IA.", "amount": "100 000 $ – 5 M$ par subvention (programme actuellement fermé)", "lastVerified": "2026-04-27", "note": "Ce fonds est surtout pertinent pour les organisations ayant un développement IA actif nécessitant des ressources de calcul importantes. Actuellement fermé; surveillez le prochain appel." }
+    ]
+  },
+  "loi25": {
+    "score": 33.3,
+    "maturityLabel": "awareButUnprepared",
+    "verdictBody": "Sensibilisation sans préparation opérationnelle. Le travail consiste à convertir « nous savons qu'il faudrait » en « nous avons une procédure documentée et un responsable nommé »."
+  },
+  "loi25Questions": [
+    { "shortLabel": "Minimisation des données", "title": "Quelles données sont vraiment nécessaires?", "article": "Art. 4, Art. 5", "score": 0, "responseText": "Nous recueillons les données disponibles; aucune contrainte documentée ne précise ce qui est nécessaire.", "nextStep": "Pour votre outil d'IA le plus utilisé : listez les champs de données, déterminez ceux qui sont vraiment nécessaires, et demandez au fournisseur comment désactiver les autres." },
+    { "shortLabel": "Personne responsable", "title": "Rendre la personne nommée publiquement trouvable.", "article": "Art. 3.1", "score": 2, "responseText": "Une personne a été nommée à l'interne, mais son identité n'est pas publiée sur notre site Web ni dans notre politique de confidentialité.", "nextStep": "Ajoutez le nom et le courriel à votre politique de confidentialité et au gabarit de signature courriel." },
+    { "shortLabel": "Signalement des incidents", "title": "Guide de signalement à la CAI.", "article": "Art. 3.5–3.7", "score": 2, "responseText": "Nous avons un processus d'incident général, mais il n'aborde pas spécifiquement l'évaluation du « risque de préjudice sérieux » prévue par la Loi 25 ni les délais de signalement à la CAI.", "nextStep": "Planifiez une simulation de 30 minutes avec la personne responsable + 2 employés. Documentez les points de défaillance du guide." },
+    { "shortLabel": "Décisions automatisées", "title": "Resserrez le délai de réponse motifs sur demande.", "article": "Art. 12.1", "score": 2, "responseText": "Nous pourrions produire l'explication en quelques jours ouvrables pour certains systèmes, mais pas tous.", "nextStep": "Pour le système le plus lent à expliquer : bâtissez un gabarit d'une page qui capture les champs récurrents. Les futures demandes deviennent du remplissage." },
+    { "shortLabel": "Transferts hors Québec", "title": "Où vivent vraiment vos données?", "article": "Art. 17", "score": 0, "responseText": "Nous n'avons pas réfléchi à l'endroit où nos fournisseurs d'IA traitent ou stockent les données.", "nextStep": "Dressez la liste de vos 10 principaux outils d'IA et vérifiez la clause de résidence des données dans les conditions de chaque fournisseur." },
+    { "shortLabel": "Registre des incidents", "title": "Maintenez le registre à jour.", "article": "Art. 3.8", "score": 2, "responseText": "Nous avons un registre, mais il est incomplet ou n'est pas mis à jour régulièrement.", "nextStep": "Bloquez un créneau récurrent mensuel de 30 minutes au calendrier de la personne responsable pour mettre à jour le registre." }
+  ]
+}

@@ -226,14 +226,28 @@ html, body {
   letter-spacing: -0.02em;
   line-height: 1;
 }
+/* Cover meta sector block — flex column so each line stays one-piece. The
+   parent uses display:flex with `gap`; we set min-width + flex-shrink:0 so
+   the sector lines don't get squeezed and word-broken (e.g. "1 à 10
+   employés" wrapping as "1 à 10" / "employés"). */
 .R-cover-client-sector {
   font-family: var(--ff-serif);
   font-style: italic;
-  font-size: 11pt;
+  font-size: 10pt;
   color: var(--ink-soft);
   margin-left: auto;
   text-align: right;
-  line-height: 1.35;
+  line-height: 1.4;
+  flex-shrink: 0;
+  min-width: 58mm;
+  white-space: nowrap;
+}
+.R-cover-client-sector br + ::after { content: ''; }
+/* Each line is wrapped in a span by the template; nowrap prevents
+   single-word wrapping. If the template still uses <br>, the parent
+   nowrap covers it (lines split at <br> only). */
+.R-cover-client-sector > span {
+  display: block;
 }
 
 .R-cover-bot {
@@ -755,17 +769,57 @@ html, body {
   border-right: 0;
 }
 
-/* In split-grid mode, use tighter typography */
+/* In split-grid mode, use tighter typography. The vertical rhythm is
+   compressed vs full-width mode so 3 rungs (priorité / étape / fondation)
+   reliably fit in a single A4 column without clipping the FONDATION block.
+   Tightened from 3mm padding + 9pt body to 2.5mm + 8.25pt + slightly
+   tighter line-height to reclaim ~10mm of column height. */
+.R-domain-col .R-domain-block { padding: 4mm 0; }
 .R-domain-col .R-domain-block-title { font-size: 14pt; }
 .R-domain-col .R-domain-block-pct { font-size: 12pt; }
+.R-domain-col .R-domain-block-iso { margin-bottom: 3mm; font-size: 8pt; }
 .R-domain-col .R-action-tier {
   grid-template-columns: 22mm 1fr;
   gap: 4mm;
-  padding: 3mm 0;
+  padding: 2.5mm 0;
 }
+.R-domain-col .R-action-tier:first-of-type { padding-top: 3mm; }
+.R-domain-col .R-action-tier-content { gap: 1.2mm; }
 .R-domain-col .R-action-tier-tag { font-size: 6.8pt; }
-.R-domain-col .R-action-tier-title { font-size: 10.5pt; }
-.R-domain-col .R-action-tier-body { font-size: 8.5pt; }
+.R-domain-col .R-action-tier-title { font-size: 10.5pt; line-height: 1.2; }
+.R-domain-col .R-action-tier-body { font-size: 8.25pt; line-height: 1.4; }
+.R-domain-col .R-action-tier-iso { margin-top: 0.8mm; line-height: 1.35; }
+
+/* Column balance:
+   - .R-domain-grid stretches columns to equal heights (so the visual
+     bottom is consistent across left/right).
+   - .R-domain-block within a column flexes to fill the column's height.
+   - Last action-tier in the block absorbs extra vertical space, so a
+     2-rung column (high-maturity domains have no "étape suivante" since
+     there's no level above 'En optimisation') doesn't end mid-page.
+   `:has()` is supported in Chromium-based renderers (which is what we
+   use server-side); fallback behavior is no stretch, original layout. */
+.R-domain-grid { align-items: stretch; }
+.R-domain-grid > .R-domain-col {
+  display: flex;
+  flex-direction: column;
+}
+.R-domain-col .R-domain-block {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+/* When a domain block has fewer than 3 action-tiers, give each rung
+   extra vertical padding so the column fills more of the page height. */
+.R-domain-col .R-domain-block:not(:has(> .R-action-tier:nth-of-type(3))) > .R-action-tier {
+  padding: 5.5mm 0;
+}
+.R-domain-col .R-domain-block:not(:has(> .R-action-tier:nth-of-type(3))) > .R-action-tier:first-of-type {
+  padding-top: 6mm;
+}
+/* Push the last rung's content towards the bottom of the column so
+   tall right columns don't visually dwarf shorter left columns. */
+.R-domain-col .R-action-tier:last-child { padding-bottom: 2.5mm; }
 
 /* ═════════════════ FUNDING OPPORTUNITIES ═════════════════ */
 .R-funding-section-num { margin-bottom: 2mm; }
@@ -816,8 +870,12 @@ html, body {
 }
 .R-funding-row {
   display: grid;
-  grid-template-columns: 1fr 36mm;
-  gap: 8mm;
+  /* Wider amount column (~36% of total) so long FR strings like
+     "75 000 $ – 200 000 $+ pour les premières demandes des PME" don't
+     wrap into single-word stacks. Eligibility text in the left column
+     has more wrap-friendly natural break points. */
+  grid-template-columns: 1fr 60mm;
+  gap: 6mm;
   padding: 1.6mm 0;
   border-bottom: 0.5pt dotted var(--rule);
   align-items: start;
