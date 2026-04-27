@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RADAR — AI Readiness Assessment · {{meta.clientName}}</title>
+<style>{{{__css}}}</style>
+</head>
+<body>
+
+{{!-- ════════════════ COVER ════════════════ --}}
+<div class="page">
+  <div class="R-cover">
+    <div class="R-cover-top">
+      <div class="R-cover-radar">
+        <img src="{{assets.radarLogo}}" alt="RADAR — AI Readiness Assessment">
+      </div>
+      <div class="R-cover-meta">
+        No. <b>{{meta.reportNo}}</b><br>
+        Confidential<br>
+        {{meta.editionLabel}} · A4
+      </div>
+    </div>
+
+    <div class="R-cover-mid">
+      <div class="R-cover-eyebrow">AI Readiness · {{meta.reportDate}}</div>
+      <h1 class="R-cover-title">A six-domain assessment of <em>AI readiness</em> mapped to ISO/IEC 42001:2023.</h1>
+      <p class="R-cover-sub">A structured diagnostic of operational, cultural, and governance readiness — with prioritized actions, funding leads{{#if loi25Show}}, and a Loi 25 self-assessment{{/if}}.</p>
+
+      <div class="R-cover-client">
+        <div class="R-cover-client-lbl">Prepared for</div>
+        <div class="R-cover-client-name">{{meta.clientName}}</div>
+        <div class="R-cover-client-sector">
+          {{meta.clientSectorLine1}}<br>{{meta.clientSectorLine2}}
+        </div>
+      </div>
+
+      <div class="R-cover-bot">
+        <div class="R-cover-bot-col left">
+          <div class="R-cover-field-label">Framework</div>
+          <div class="R-cover-field-value">
+            ISO/IEC 42001:2023 <span class="sep-dot">·</span> <span class="sub-inline">AI Management Systems</span>
+          </div>
+        </div>
+        <div class="R-cover-bot-col right">
+          <div class="R-cover-field-label">Contact</div>
+          <div class="R-cover-field-value">info@nordparadigm.com</div>
+        </div>
+      </div>
+
+      <p class="R-cover-disclaimer">
+        This is a diagnostic tool, not a compliance audit or certification. Output language is intentionally precise: it indicates potential gaps, not confirmed compliance.
+      </p>
+    </div>
+
+    <div class="R-cover-np">
+      <img src="{{assets.npLogo}}" alt="Nord Paradigm">
+    </div>
+  </div>
+</div>
+
+{{!-- ════════════════ PAGE 1 — EXECUTIVE SUMMARY ════════════════ --}}
+<div class="page">
+  <div class="R-inside">
+    <div class="R-running-head">
+      <div class="R-running-head-left">
+        <img src="{{assets.npLogo}}" alt="">
+        <span class="sep"></span>
+        <span>RADAR · {{meta.clientName}}</span>
+      </div>
+      <span class="pg">01 / {{pad2 pagesTotal}}</span>
+    </div>
+
+    <div class="R-section-num">§ 01 — Executive Summary</div>
+    <h2 class="R-section-h">Overall AI readiness profile.</h2>
+    <p class="R-section-sub">Synthetic verdict drawn from a six-domain assessment mapped to ISO/IEC 42001:2023. Each domain is scored independently; the overall band reflects their weighted aggregate.</p>
+
+    <div class="R-verdict">
+      <div class="R-verdict-left">
+        <div class="R-verdict-kicker">AI Readiness Band</div>
+        <div class="R-verdict-level">{{executive.overallLabel}}</div>
+        <div class="R-verdict-pct">{{executive.overallScoreLabel}} overall</div>
+      </div>
+      <div class="R-verdict-right">
+        {{#if executive.strengthHeadline}}
+        <div>
+          <div class="R-verdict-strength">What you're doing right</div>
+          <strong>{{executive.strengthHeadline}}</strong>
+        </div>
+        {{/if}}
+        {{#if executive.introBody}}
+        <div>{{executive.introBody}}</div>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="R-summary-eye">§ 02 — Domain Scores</div>
+    <h3 class="R-summary-title">Six domains, six scores.</h3>
+
+    <div class="R-summary-grid">
+      {{#each domains}}
+      <div class="R-domain-card">
+        <div class="R-domain-head">
+          <div class="R-domain-name">{{name}}</div>
+          <span class="R-band {{bandClass}}">{{bandLabel}}</span>
+        </div>
+        <div class="R-domain-bar">
+          <div class="R-score-bar"><div class="R-score-bar-fill" style="width:{{score}}%"></div></div>
+          <div class="R-score-pct">{{score}}%</div>
+        </div>
+        <div class="R-domain-iso"><b>ISO 42001</b> · {{iso}}</div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="R-foot">
+      <div class="mark"><b>Nord Paradigm</b></div>
+      <span>info@nordparadigm.com</span>
+    </div>
+  </div>
+</div>
+
+{{!-- ════════════════ PAGE 2 — TOP 3 PRIORITY ACTIONS ════════════════ --}}
+<div class="page">
+  <div class="R-inside">
+    <div class="R-running-head">
+      <div class="R-running-head-left">
+        <img src="{{assets.npLogo}}" alt="">
+        <span class="sep"></span>
+        <span>RADAR · {{meta.clientName}}</span>
+      </div>
+      <span class="pg">02 / {{pad2 pagesTotal}}</span>
+    </div>
+
+    <div class="R-section-num">§ 03 — Top 3 Priority Actions</div>
+    <h2 class="R-section-h">Where to start.</h2>
+    <p class="R-section-sub">The three highest-leverage moves drawn from your six-domain assessment. Each pairs the strategic intent with a concrete, low-friction quick win you can run this quarter.</p>
+
+    <div class="R-priority-stack">
+      {{#each priorities}}
+      <div class="R-priority-row">
+        <div class="R-priority-num">{{num}}</div>
+        <div class="R-priority-content">
+          <div class="R-priority-domain"><b>{{domainName}}</b> · {{domainScore}}%</div>
+          <div class="R-priority-action">{{actionTitle}}</div>
+          {{#if quickWin}}
+          <div class="R-quickwin">
+            <div class="R-quickwin-tag">Quick Win</div>
+            <div class="R-quickwin-body">{{quickWin}}</div>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="R-foot">
+      <div class="mark"><b>Nord Paradigm</b></div>
+      <span>info@nordparadigm.com</span>
+    </div>
+  </div>
+</div>
+
+{{!-- ════════════════ PAGES 3–5 — DOMAIN DETAIL (3 pairs) ════════════════ --}}
+{{#each domainPairs}}
+<div class="page">
+  <div class="R-inside">
+    <div class="R-running-head">
+      <div class="R-running-head-left">
+        <img src="{{../assets.npLogo}}" alt="">
+        <span class="sep"></span>
+        <span>RADAR · {{../meta.clientName}}</span>
+      </div>
+      <span class="pg">{{pad2 (add @index 3)}} / {{pad2 ../pagesTotal}}</span>
+    </div>
+
+    <div class="R-section-num">§ {{add @index 4}} — Domain detail ({{add @index 1}} of 3)</div>
+    <h2 class="R-section-h">{{#each this}}{{#if this}}{{#unless @first}} · {{/unless}}{{name}}{{/if}}{{/each}}.</h2>
+
+    <div class="R-domain-grid">
+      {{#each this}}
+      {{#if this}}
+      <div class="R-domain-col">
+        <div class="R-domain-block">
+          <div class="R-domain-block-head">
+            <h3 class="R-domain-block-title">{{name}}</h3>
+            <div class="R-domain-block-meta">
+              <span class="R-band {{bandClass}}">{{bandLabel}}</span>
+              <span class="R-domain-block-pct">{{score}}%</span>
+            </div>
+          </div>
+          <p class="R-domain-block-iso"><b>ISO 42001</b> · {{iso}}</p>
+
+          {{#each actions}}
+          <div class="R-action-tier">
+            <div class="R-action-tier-tag {{tier}}">{{tierLabel}}</div>
+            <div class="R-action-tier-content">
+              <div class="R-action-tier-title">{{title}}</div>
+              {{#if body}}<div class="R-action-tier-body">{{body}}</div>{{/if}}
+              {{#if quickWin}}
+              <div class="R-action-tier-iso"><b>Quick Win</b> · {{quickWin}}{{#if iso}} <i>{{iso}}</i>{{/if}}</div>
+              {{else if iso}}
+              <div class="R-action-tier-iso"><i>{{iso}}</i></div>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+
+    <div class="R-foot">
+      <div class="mark"><b>Nord Paradigm</b></div>
+      <span>info@nordparadigm.com</span>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+{{!-- ════════════════ PAGE 6 — FUNDING OPPORTUNITIES ════════════════ --}}
+<div class="page">
+  <div class="R-inside">
+    <div class="R-running-head">
+      <div class="R-running-head-left">
+        <img src="{{assets.npLogo}}" alt="">
+        <span class="sep"></span>
+        <span>RADAR · {{meta.clientName}}</span>
+      </div>
+      <span class="pg">{{pad2 (add 6 0)}} / {{pad2 pagesTotal}}</span>
+    </div>
+
+    <div class="R-section-num R-funding-section-num">§ 07 — Funding Opportunities</div>
+    <h2 class="R-section-h R-funding-h">Programs you may qualify for.</h2>
+
+    {{#if funding.profileMatch}}
+    <div class="R-funding-profile">
+      <b>Profile match</b> · {{funding.profileMatch}}
+    </div>
+    {{/if}}
+
+    {{#if funding.eligible.length}}
+    <div class="R-funding-eye">
+      <span class="R-funding-mark"></span>
+      Programs You May Qualify For
+    </div>
+    <div class="R-funding-grid">
+      {{#each funding.eligible}}
+      <div class="R-funding-row">
+        <div>
+          <div class="R-funding-name">{{name}}</div>
+          <div class="R-funding-desc">{{desc}}</div>
+          {{#if note}}
+          <div class="R-funding-note"><b>Note</b> · {{note}}</div>
+          {{/if}}
+        </div>
+        <div class="R-funding-amount">
+          <div class="R-funding-amount-val">{{amount}}</div>
+          {{#if verified}}<div class="R-funding-verified"><b>Verified</b> · {{verified}}</div>{{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    {{#if funding.investigate.length}}
+    <div class="R-funding-eye investigate">
+      <span class="R-funding-mark"></span>
+      Worth Investigating
+    </div>
+    <div class="R-funding-grid">
+      {{#each funding.investigate}}
+      <div class="R-funding-row">
+        <div>
+          <div class="R-funding-name">{{name}}</div>
+          <div class="R-funding-desc">{{desc}}</div>
+          {{#if note}}
+          <div class="R-funding-note"><b>Note</b> · {{note}}</div>
+          {{/if}}
+        </div>
+        <div class="R-funding-amount">
+          <div class="R-funding-amount-val">{{amount}}</div>
+          {{#if verified}}<div class="R-funding-verified"><b>Verified</b> · {{verified}}</div>{{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    <p class="R-funding-disclaimer">
+      Eligibility is indicative only. Program terms and availability should be confirmed with the relevant agency.
+    </p>
+
+    <div class="R-foot">
+      <div class="mark"><b>Nord Paradigm</b></div>
+      <span>info@nordparadigm.com</span>
+    </div>
+  </div>
+</div>
+
+{{!-- ════════════════ PAGE 7 — LOI 25 (Quebec only) ════════════════ --}}
+{{#if loi25Show}}
+<div class="page">
+  <div class="R-inside">
+    <div class="R-running-head">
+      <div class="R-running-head-left">
+        <img src="{{assets.npLogo}}" alt="">
+        <span class="sep"></span>
+        <span>RADAR · {{meta.clientName}}</span>
+      </div>
+      <span class="pg">{{pad2 pagesTotal}} / {{pad2 pagesTotal}}</span>
+    </div>
+
+    <div class="R-section-num">§ 08 — Loi 25 — Quebec Privacy Obligations</div>
+    <h2 class="R-section-h">Privacy readiness self-assessment.</h2>
+
+    <div class="R-loi25-verdict">
+      <div>
+        <div class="R-verdict-kicker">Loi 25 Readiness</div>
+        <div class="R-loi25-pct">{{loi25.scoreInt}}%</div>
+        <div class="R-loi25-band">{{loi25.bandLabel}}</div>
+      </div>
+      <div class="R-loi25-verdict-body">
+        {{loi25.verdictBody}}
+      </div>
+    </div>
+
+    <div class="R-loi25-grid">
+      {{#each loi25.questions}}
+      <div class="R-loi25-q">
+        <div class="R-loi25-q-head">
+          <div>
+            <div class="R-loi25-q-num">{{num}} · {{shortLabel}}</div>
+            <div class="R-loi25-q-title">{{title}}</div>
+          </div>
+          <div class="R-loi25-q-score">
+            {{#times scoreOnPips}}<span class="R-pip on"></span>{{/times}}{{#times scoreOffPips}}<span class="R-pip"></span>{{/times}}
+          </div>
+        </div>
+        <div class="R-loi25-q-iso"><b>Loi 25</b> · {{article}} · Score {{score}}/4</div>
+        {{#if responseText}}<div class="R-loi25-q-resp"><b>Your response</b> · {{responseText}}</div>{{/if}}
+        {{#if nextStep}}<div class="R-loi25-q-step">{{nextStep}}</div>{{/if}}
+      </div>
+      {{/each}}
+    </div>
+
+    <p class="R-loi25-disclaimer">
+      This is a self-assessment, not legal advice. Loi 25 compliance is a legal judgement that requires review by a qualified privacy specialist. Output language is intentionally precise: "indicates potential gaps," not "confirms compliance." This assessment is mapped to ISO/IEC 42001:2023, the international standard for AI Management Systems.
+    </p>
+
+    <div class="R-foot">
+      <div class="mark"><b>Nord Paradigm · info@nordparadigm.com</b></div>
+      <span>nordparadigm.com</span>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "@nordparadigm/pdf-renderer",
+  "version": "0.1.0",
+  "description": "Shared PDF rendering pipeline for Nord Paradigm products (Radar, Brèche, future). Headless Chromium + Handlebars templates.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./templates/*": "./src/templates/*"
+  },
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "test:radar:en": "node scripts/render-sample.js radar en",
+    "test:radar:fr": "node scripts/render-sample.js radar fr"
+  },
+  "dependencies": {
+    "@sparticuz/chromium-min": "^131.0.0",
+    "handlebars": "^4.7.8",
+    "puppeteer-core": "^23.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DA-Leclerc/np-pdf-renderer.git"
+  },
+  "license": "UNLICENSED",
+  "private": false
+}
