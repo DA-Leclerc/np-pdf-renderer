@@ -76,18 +76,16 @@ async function getBrowser({ executablePath } = {}) {
   const puppeteer = (await import('puppeteer-core')).default;
   let exec = executablePath;
   if (!exec) {
-    // In serverless: download Chromium via @sparticuz/chromium-min.
+    // In serverless: use @sparticuz/chromium (bundles the binary + shim libs
+    // for AWS Lambda / Vercel). The -min variant exists for size but requires
+    // libnss3 already on the host, which Vercel doesn't provide.
     // In local dev: callers should set PUPPETEER_EXECUTABLE_PATH or pass
-    // executablePath explicitly so we don't pay the cold-start download.
+    // executablePath explicitly so we don't load the bundled Linux binary.
     if (process.env.PUPPETEER_EXECUTABLE_PATH) {
       exec = process.env.PUPPETEER_EXECUTABLE_PATH;
     } else {
-      const chromium = (await import('@sparticuz/chromium-min')).default;
-      // The pinned tarball URL — keep this in sync with the @sparticuz
-      // version pinned in package.json.
-      const tarballUrl = process.env.NP_PDF_CHROMIUM_TARBALL
-        ?? 'https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar';
-      exec = await chromium.executablePath(tarballUrl);
+      const chromium = (await import('@sparticuz/chromium')).default;
+      exec = await chromium.executablePath();
     }
   }
   browserPromise = puppeteer.launch({
