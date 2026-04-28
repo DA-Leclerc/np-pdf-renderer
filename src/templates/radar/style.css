@@ -1018,8 +1018,8 @@ html, body {
 .R-loi25-q {
   display: flex;
   flex-direction: column;
-  gap: 0.8mm;
-  padding: 1.5mm 0;
+  gap: 0.5mm;
+  padding: 1mm 0;
   border-top: 0.5pt solid var(--ink);
 }
 .R-loi25-q-head {
@@ -1076,9 +1076,9 @@ html, body {
 }
 .R-loi25-q-resp {
   font-family: var(--ff-body);
-  font-size: 8.5pt;
+  font-size: 8pt;
   color: var(--ink-soft);
-  line-height: 1.5;
+  line-height: 1.4;
 }
 .R-loi25-q-resp b {
   font-family: var(--ff-display);
@@ -1091,23 +1091,26 @@ html, body {
 .R-loi25-q-step {
   font-family: var(--ff-serif);
   font-style: italic;
-  font-size: 8.5pt;
+  font-size: 8pt;
   color: var(--ink);
-  line-height: 1.5;
-  padding: 2mm 3mm;
+  line-height: 1.4;
+  padding: 1.5mm 2.5mm;
   background: rgba(184,144,60,0.06);
   border-left: 1.2mm solid var(--gold);
-  margin-top: 1mm;
+  margin-top: 0.5mm;
 }
 
+/* Loi 25 disclaimer — narrow band above the footer rather than a
+   tall paragraph. Smaller font + tighter line-height + less margin
+   so it stays within the page when 6 question blocks fill the grid. */
 .R-loi25-disclaimer {
   font-family: var(--ff-serif);
   font-style: italic;
-  font-size: 8pt;
+  font-size: 7.5pt;
   color: var(--ink-mute);
-  line-height: 1.5;
-  margin-top: 5mm;
-  padding-top: 3mm;
+  line-height: 1.4;
+  margin-top: 3mm;
+  padding-top: 2mm;
   border-top: 0.5pt solid var(--rule);
 }
 
