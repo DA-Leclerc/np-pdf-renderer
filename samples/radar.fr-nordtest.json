@@ -63,7 +63,7 @@
       "maturityLabel": "optimizing",
       "iso": "Clause 6 (Planification), Clause 10 (Amélioration), Annexe A.3, A.5",
       "actions": [
-        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Passez de la gestion des risques à l'intelligence des risques.", "body": "Utilisez vos données de gouvernance pour anticiper les risques émergents avant qu'ils ne se concrétisent. Intégrez les leçons tirées des incidents dans votre méthodologie d'évaluation des risques.", "quickWin": "Passez en revue vos 3 derniers incidents IA et identifiez une amélioration systémique à apporter à votre processus d'évaluation des risques.", "iso": "ISO 42001 : Clause 10.2" },
+        { "tier": "priority", "tierLabel": "Priorité actuelle", "title": "Passez de la gestion des risques à l'analyse prédictive des risques.", "body": "Utilisez vos données de gouvernance pour anticiper les risques émergents avant qu'ils ne se concrétisent. Intégrez les leçons tirées des incidents dans votre méthodologie d'évaluation des risques.", "quickWin": "Passez en revue vos 3 derniers incidents IA et identifiez une amélioration systémique à apporter à votre processus d'évaluation des risques.", "iso": "ISO 42001 : Clause 10.2" },
         { "tier": "foundation", "tierLabel": "Fondation", "title": "Élaborez un guide de réponse aux incidents simple pour les défaillances de l'IA.", "body": "Quand (et non si) un système d'IA produit un mauvais résultat, votre équipe doit savoir : qui appeler, quoi documenter, comment communiquer avec les parties touchées.", "quickWin": "Rédigez une fiche de réponse aux incidents IA d'une page pour votre système d'IA le plus utilisé.", "iso": "ISO 42001 : Clause 10.1" }
       ]
     },
