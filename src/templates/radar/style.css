@@ -61,7 +61,7 @@ body { font-family: var(--ff-body); color: var(--ink); -webkit-font-smoothing: a
    Extends the same architectural language as Brèche (direction-a-v16.css):
    cream paper, gold + teal accents, rust for risk, navy ink, Sora/DM Sans/Source Serif.
    New components are RADAR-specific: domain scores, priority stack, domain detail,
-   funding list, Loi 25 self-assessment.
+   Loi 25 self-assessment.
 */
 
 /* ═════════════════════ PRINT COLOR FIDELITY ═════════════════════ */
@@ -85,7 +85,6 @@ html, body {
   .R-summary-grid::before,
   .R-priority-stack::before,
   .R-domain-grid::before,
-  .R-funding-grid::before,
   .R-loi25-grid::before {
     background-image: linear-gradient(90deg, var(--gold) 0%, var(--gold) 35%, var(--teal) 100%) !important;
   }
@@ -820,141 +819,6 @@ html, body {
 /* Push the last rung's content towards the bottom of the column so
    tall right columns don't visually dwarf shorter left columns. */
 .R-domain-col .R-action-tier:last-child { padding-bottom: 2.5mm; }
-
-/* ═════════════════ FUNDING OPPORTUNITIES ═════════════════ */
-.R-funding-section-num { margin-bottom: 2mm; }
-.R-funding-h { margin-bottom: 4mm; }
-.R-funding-profile {
-  font-family: var(--ff-serif);
-  font-style: italic;
-  font-size: 9.5pt;
-  color: var(--ink-soft);
-  line-height: 1.45;
-  margin: 0 0 3mm 0;
-  padding: 1.8mm 3.5mm;
-  background: rgba(184,144,60,0.05);
-  border-left: 1.6mm solid var(--gold);
-}
-.R-funding-profile b {
-  font-style: normal;
-  font-family: var(--ff-display);
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.R-funding-eye {
-  font-family: var(--ff-display);
-  font-weight: 700;
-  font-size: 8pt;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 2mm 0 2mm;
-  padding-bottom: 1.5mm;
-  border-bottom: 0.5pt solid var(--ink);
-  display: flex;
-  align-items: center;
-  gap: 3mm;
-}
-.R-funding-eye + .R-funding-grid + .R-funding-eye { margin-top: 4mm; }
-.R-funding-eye .R-funding-mark {
-  width: 8pt; height: 8pt; border-radius: 2pt;
-  background: var(--teal);
-}
-.R-funding-eye.investigate .R-funding-mark { background: var(--ochre); }
-
-.R-funding-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-.R-funding-row {
-  display: grid;
-  /* Wider amount column (~36% of total) so long FR strings like
-     "75 000 $ – 200 000 $+ pour les premières demandes des PME" don't
-     wrap into single-word stacks. Eligibility text in the left column
-     has more wrap-friendly natural break points. */
-  grid-template-columns: 1fr 60mm;
-  gap: 6mm;
-  padding: 1.6mm 0;
-  border-bottom: 0.5pt dotted var(--rule);
-  align-items: start;
-}
-.R-funding-row:last-child { border-bottom: 0; }
-.R-funding-name {
-  font-family: var(--ff-display);
-  font-weight: 700;
-  font-size: 11pt;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  margin-bottom: 1mm;
-}
-.R-funding-desc {
-  font-family: var(--ff-body);
-  font-size: 8.5pt;
-  color: var(--ink-soft);
-  line-height: 1.5;
-}
-.R-funding-note {
-  font-family: var(--ff-serif);
-  font-style: italic;
-  font-size: 8pt;
-  color: var(--ink-mute);
-  line-height: 1.5;
-  margin-top: 1.5mm;
-  padding-top: 1.5mm;
-  border-top: 0.3pt solid var(--rule);
-}
-.R-funding-note b {
-  font-style: normal;
-  font-family: var(--ff-display);
-  font-weight: 600;
-  color: var(--ink);
-  font-size: 7pt;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.R-funding-amount {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1.5mm;
-  padding-top: 1pt;
-}
-.R-funding-amount-val {
-  font-family: var(--ff-display);
-  font-weight: 700;
-  font-size: 12pt;
-  color: var(--gold);
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  text-align: right;
-}
-.R-funding-verified {
-  font-family: var(--ff-display);
-  font-size: 6.5pt;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  font-weight: 600;
-}
-.R-funding-verified b {
-  color: var(--teal);
-  font-weight: 700;
-}
-
-.R-funding-disclaimer {
-  font-family: var(--ff-serif);
-  font-style: italic;
-  font-size: 8pt;
-  color: var(--ink-mute);
-  line-height: 1.5;
-  margin-top: 2.5mm;
-  padding-top: 2mm;
-  border-top: 0.5pt solid var(--rule);
-}
 
 /* ═════════════════ LOI 25 SELF-ASSESSMENT ═════════════════ */
 .R-loi25-verdict {

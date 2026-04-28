@@ -84,20 +84,6 @@
     { "domainName": "Personnel et culture", "score": 67, "recommendation": { "headline": "Investissez dans la gestion du changement pour l'adoption de l'IA.", "quickWin": "Lancez un sondage anonyme : « Comment percevez-vous l'IA dans notre milieu de travail? »" } },
     { "domainName": "Technologie et opérations", "score": 79, "recommendation": { "headline": "Intégrez la gestion du cycle de vie dans vos opérations IA.", "quickWin": "Planifiez la première révision de votre système IA en service depuis le plus longtemps." } }
   ],
-  "funding": {
-    "eligible": [
-      { "name": "ESSOR — Sous-volet 1B (Diagnostic numérique)", "summary": "Subvention québécoise non remboursable pour les diagnostics numériques — ouverte à tous les secteurs.", "amount": "Jusqu'à 20 000 $", "lastVerified": "2026-04-27" },
-      { "name": "ESSOR — Sous-volet 1C (Mise en œuvre)", "summary": "Financement québécois pour mettre en œuvre votre plan numérique — ouvert à tous les secteurs.", "amount": "Jusqu'à 50 000 $", "lastVerified": "2026-04-27" },
-      { "name": "CNRC PARI (Programme d'aide à la recherche industrielle)", "summary": "Financement fédéral non remboursable pour les projets IA des PME.", "amount": "75 000 $ – 200 000 $+ pour les premières demandes des PME", "lastVerified": "2026-04-27" },
-      { "name": "Initiative régionale en intelligence artificielle (IRIA)", "summary": "Financement fédéral pour la commercialisation et l'adoption de l'IA.", "amount": "250 000 $ – 5 M$ par projet", "lastVerified": "2026-04-27" },
-      { "name": "RS&DE (Recherche scientifique et développement expérimental)", "summary": "Crédit d'impôt fédéral pour les activités de R&D incluant l'IA.", "amount": "Jusqu'à 35 % remboursable sur les premiers 6 M$ de R&D (crédit max 2,1 M$)", "lastVerified": "2026-04-27" },
-      { "name": "Quebec CRIC (Crédit d'impôt R-D, innovation et précommercialisation)", "summary": "Crédit d'impôt provincial québécois pour l'innovation, distinct de l'ancien C3i.", "amount": "30 % sur le premier 1 M$ de R&D", "lastVerified": "2026-04-27" }
-    ],
-    "investigate": [
-      { "name": "CDAE-IA (Crédit d'impôt — affaires électroniques + IA)", "summary": "Crédit d'impôt québécois sur les salaires IA pour les entreprises TI/logiciels avec intégration significative de l'IA.", "amount": "22 % remboursable + 8 % non remboursable sur les salaires admissibles", "lastVerified": "2026-04-27", "note": "Le CDAE-IA exige une intégration significative de l'IA dans les activités d'affaires électroniques, ainsi que 75 %+ des revenus en TI et 50 %+ en développement ou édition de logiciels." },
-      { "name": "Fonds d'accès au calcul IA", "summary": "Accès fédéral subventionné au calcul haute performance pour l'IA.", "amount": "100 000 $ – 5 M$ par subvention (programme actuellement fermé)", "lastVerified": "2026-04-27", "note": "Ce fonds est surtout pertinent pour les organisations ayant un développement IA actif nécessitant des ressources de calcul importantes. Actuellement fermé; surveillez le prochain appel." }
-    ]
-  },
   "loi25": {
     "score": 33.3,
     "maturityLabel": "awareButUnprepared",

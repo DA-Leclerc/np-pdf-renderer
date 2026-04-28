@@ -85,20 +85,6 @@
     { "domainName": "People & Culture", "score": 50, "recommendation": { "headline": "Move from ad hoc learning to a structured AI competency framework.", "quickWin": "Define AI competency expectations for 3 key roles in your organization." } },
     { "domainName": "Data Readiness", "score": 50, "recommendation": { "headline": "Establish data quality standards with AI use cases in mind.", "quickWin": "Define data quality thresholds for one dataset you plan to use with AI." } }
   ],
-  "funding": {
-    "eligible": [
-      { "name": "ESSOR — Sous-volet 1B (Diagnostic numérique)", "summary": "Non-repayable Quebec grant for digital diagnostics — open to all sectors.", "amount": "Up to $20,000", "lastVerified": "2026-04-27" },
-      { "name": "ESSOR — Sous-volet 1C (Mise en œuvre)", "summary": "Quebec funding to implement your digital plan — open to all sectors.", "amount": "Up to $50,000", "lastVerified": "2026-04-27" },
-      { "name": "NRC IRAP (Industrial Research Assistance Program)", "summary": "Federal non-repayable funding for innovative AI SME projects.", "amount": "$75K–$200K+", "lastVerified": "2026-04-27" },
-      { "name": "Regional AI Initiative (RAII)", "summary": "Federal funding for AI commercialization and adoption projects.", "amount": "$250K–$5M per project", "lastVerified": "2026-04-27" },
-      { "name": "SR&ED (Scientific Research & Experimental Development)", "summary": "Federal tax credit for R&D activities including AI development.", "amount": "Up to 35% refundable", "lastVerified": "2026-04-27" },
-      { "name": "Quebec CRIC (Crédit d'impôt R-D, innovation et précommercialisation)", "summary": "Quebec provincial innovation tax credit, distinct from the older C3i.", "amount": "30% on first $1M R&D", "lastVerified": "2026-04-27" }
-    ],
-    "investigate": [
-      { "name": "CDAE-IA (Crédit d'impôt — affaires électroniques + IA)", "summary": "Quebec AI salary tax credit for IT/software firms with significant AI integration.", "amount": "22% refundable + 8% non-ref.", "lastVerified": "2026-04-27", "note": "Requires significant AI integration in e-business activities, plus 75%+ revenue from IT and 50%+ from software development. As your AI use deepens, this credit may apply." },
-      { "name": "AI Compute Access Fund", "summary": "Federal subsidized access to high-performance AI computing.", "amount": "$100K–$5M per grant", "lastVerified": "2026-04-27", "note": "Most relevant for organizations with active AI development requiring significant compute resources. Currently closed; monitor for the next call." }
-    ]
-  },
   "loi25": {
     "score": 33.3,
     "maturityLabel": "awareButUnprepared",

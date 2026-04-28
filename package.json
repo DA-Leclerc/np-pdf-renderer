@@ -1,6 +1,6 @@
 {
   "name": "@nordparadigm/pdf-renderer",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Shared PDF rendering pipeline for Nord Paradigm products (Radar, Brèche, future). Headless Chromium + Handlebars templates.",
   "type": "module",
   "main": "src/index.js",

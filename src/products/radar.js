@@ -17,10 +17,6 @@ const SIZE_LABELS = {
   en: { a: '1–10 employees', b: '11–50 employees', c: '51–250 employees', d: '251–500 employees', e: '500+ employees' },
   fr: { a: '1 à 10 employés', b: '11 à 50 employés', c: '51 à 250 employés', d: '251 à 500 employés', e: '500+ employés' },
 };
-const REVENUE_LABELS = {
-  en: { a: 'Revenue < $500K', b: 'Revenue $500K – $2.5M', c: 'Revenue $2.5M – $10M', d: 'Revenue $10M – $50M', e: 'Revenue > $50M' },
-  fr: { a: 'CA < 500 K$', b: 'CA 500 K$ – 2,5 M$', c: 'CA 2,5 M$ – 10 M$', d: 'CA 10 M$ – 50 M$', e: 'CA > 50 M$' },
-};
 const SECTOR_LABELS = {
   en: { a: 'Manufacturing', b: 'Financial services', c: 'Healthcare', d: 'Professional services', e: 'Technology', f: 'Retail', g: 'Public sector', h: 'Education', i: 'Construction', j: 'Other' },
   fr: { a: 'Fabrication', b: 'Services financiers', c: 'Santé', d: 'Services professionnels', e: 'Technologie', f: 'Commerce de détail', g: 'Secteur public', h: 'Éducation', i: 'Construction', j: 'Autre' },
@@ -28,10 +24,6 @@ const SECTOR_LABELS = {
 const AI_USE_LABELS = {
   en: { a: 'Exploring AI', b: 'Basic AI use', c: 'Actively implementing AI', d: 'AI core to operations' },
   fr: { a: 'IA en exploration', b: 'IA de base', c: 'IA en mise en œuvre active', d: "IA au cœur des opérations" },
-};
-const INCORP_LABELS = {
-  en: { a: 'Incorporated in Canada', b: 'Not incorporated' },
-  fr: { a: 'Incorporé au Canada', b: 'Non incorporé' },
 };
 
 const EDITION_LABELS = {
@@ -106,7 +98,6 @@ function reportNumber(date, prefix = 'RD') {
  * @param {object} payload.answers        - { questionId: value }
  * @param {Array<{domainId,domainName,score,maturityLabel,recommendation}>} payload.priorityActions
  * @param {Array<{id,name,score,maturityLabel,iso,actions:[{tier,title,body,quickWin,iso}]}>} payload.domains
- * @param {object} payload.funding        - { eligible, investigate, profileMatch, ... }
  * @param {object} [payload.loi25]        - calculateLoi25Score output, only when CQ1=Quebec
  * @param {Array<{id,questionText,shortLabel,article,score,responseText,nextStep}>} [payload.loi25Questions]
  * @returns {object} Handlebars template context
@@ -152,19 +143,6 @@ export function buildRadarContext(payload) {
     actionTitle: p.recommendation?.headline || p.action || '',
     quickWin: p.recommendation?.quickWin || p.quickWin || '',
   }));
-
-  const funding = {
-    profileMatch: [
-      REGION_LABELS[lang][ctx.CQ1],
-      SIZE_LABELS[lang][ctx.CQ2],
-      INCORP_LABELS[lang][ctx.CQ3],
-      REVENUE_LABELS[lang][ctx.CQ4],
-      AI_USE_LABELS[lang][ctx.CQ5],
-      SECTOR_LABELS[lang][ctx.CQ6],
-    ].filter(Boolean).join(' · '),
-    eligible: (payload.funding?.eligible || []).map(g => fundingRow(g, lang)),
-    investigate: (payload.funding?.investigate || []).map(g => fundingRow(g, lang)),
-  };
 
   const showLoi25 = !!payload.loi25 && ctx.CQ1 === 'a';
   let loi25 = null;
@@ -212,10 +190,9 @@ export function buildRadarContext(payload) {
     domains,
     domainPairs: pairDomains(domains),       // [[d0,d1],[d2,d3],[d4,d5]] for the 3-page split
     priorities,
-    funding,
     loi25Show: showLoi25,
     loi25,
-    pagesTotal: showLoi25 ? 7 : 6,           // page-counter total (cover not counted)
+    pagesTotal: showLoi25 ? 6 : 5,           // page-counter total (cover not counted)
   };
 }
 
@@ -230,16 +207,6 @@ function tierLabelFor(tier, lang) {
     : tier === 'next' ? 'Next Step'
     : tier === 'foundation' ? 'Foundation'
     : tier;
-}
-
-function fundingRow(g, lang) {
-  return {
-    name: g.name,
-    desc: g.summary,
-    amount: g.amount,
-    note: g.note,
-    verified: g.lastVerified,
-  };
 }
 
 function pairDomains(domains) {

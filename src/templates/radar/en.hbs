@@ -24,7 +24,7 @@
     <div class="R-cover-mid">
       <div class="R-cover-eyebrow">AI Readiness · {{meta.reportDate}}</div>
       <h1 class="R-cover-title">A six-domain assessment of <em>AI readiness</em> mapped to ISO/IEC 42001:2023.</h1>
-      <p class="R-cover-sub">A structured diagnostic of operational, cultural, and governance readiness — with prioritized actions, funding leads{{#if loi25Show}}, and a Loi 25 self-assessment{{/if}}.</p>
+      <p class="R-cover-sub">A structured diagnostic of operational, cultural, and governance readiness — with prioritized actions{{#if loi25Show}} and a Loi 25 self-assessment{{/if}}.</p>
 
       <div class="R-cover-client">
         <div class="R-cover-client-lbl">Prepared for</div>
@@ -219,87 +219,7 @@
 </div>
 {{/each}}
 
-{{!-- ════════════════ PAGE 6 — FUNDING OPPORTUNITIES ════════════════ --}}
-<div class="page">
-  <div class="R-inside">
-    <div class="R-running-head">
-      <div class="R-running-head-left">
-        <img src="{{assets.npLogo}}" alt="">
-        <span class="sep"></span>
-        <span>RADAR · {{meta.clientName}}</span>
-      </div>
-      <span class="pg">{{pad2 (add 6 0)}} / {{pad2 pagesTotal}}</span>
-    </div>
-
-    <div class="R-section-num R-funding-section-num">§ 07 — Funding Opportunities</div>
-    <h2 class="R-section-h R-funding-h">Programs you may qualify for.</h2>
-
-    {{#if funding.profileMatch}}
-    <div class="R-funding-profile">
-      <b>Profile match</b> · {{funding.profileMatch}}
-    </div>
-    {{/if}}
-
-    {{#if funding.eligible.length}}
-    <div class="R-funding-eye">
-      <span class="R-funding-mark"></span>
-      Programs You May Qualify For
-    </div>
-    <div class="R-funding-grid">
-      {{#each funding.eligible}}
-      <div class="R-funding-row">
-        <div>
-          <div class="R-funding-name">{{name}}</div>
-          <div class="R-funding-desc">{{desc}}</div>
-          {{#if note}}
-          <div class="R-funding-note"><b>Note</b> · {{note}}</div>
-          {{/if}}
-        </div>
-        <div class="R-funding-amount">
-          <div class="R-funding-amount-val">{{amount}}</div>
-          {{#if verified}}<div class="R-funding-verified"><b>Verified</b> · {{verified}}</div>{{/if}}
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}}
-
-    {{#if funding.investigate.length}}
-    <div class="R-funding-eye investigate">
-      <span class="R-funding-mark"></span>
-      Worth Investigating
-    </div>
-    <div class="R-funding-grid">
-      {{#each funding.investigate}}
-      <div class="R-funding-row">
-        <div>
-          <div class="R-funding-name">{{name}}</div>
-          <div class="R-funding-desc">{{desc}}</div>
-          {{#if note}}
-          <div class="R-funding-note"><b>Note</b> · {{note}}</div>
-          {{/if}}
-        </div>
-        <div class="R-funding-amount">
-          <div class="R-funding-amount-val">{{amount}}</div>
-          {{#if verified}}<div class="R-funding-verified"><b>Verified</b> · {{verified}}</div>{{/if}}
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}}
-
-    <p class="R-funding-disclaimer">
-      Eligibility is indicative only. Program terms and availability should be confirmed with the relevant agency.
-    </p>
-
-    <div class="R-foot">
-      <div class="mark"><b>Nord Paradigm</b></div>
-      <span>info@nordparadigm.com</span>
-    </div>
-  </div>
-</div>
-
-{{!-- ════════════════ PAGE 7 — LOI 25 (Quebec only) ════════════════ --}}
+{{!-- ════════════════ PAGE 6 — LOI 25 (Quebec only) ════════════════ --}}
 {{#if loi25Show}}
 <div class="page">
   <div class="R-inside">

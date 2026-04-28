@@ -24,7 +24,7 @@
     <div class="R-cover-mid">
       <div class="R-cover-eyebrow">Maturité IA · {{meta.reportDate}}</div>
       <h1 class="R-cover-title">Évaluation en six domaines de la <em>maturité IA</em>, alignée sur ISO/IEC 42001:2023.</h1>
-      <p class="R-cover-sub">Diagnostic structuré de la maturité opérationnelle, culturelle et de gouvernance — avec actions priorisées, pistes de financement{{#if loi25Show}}, et auto-évaluation Loi 25{{/if}}.</p>
+      <p class="R-cover-sub">Diagnostic structuré de la maturité opérationnelle, culturelle et de gouvernance — avec actions priorisées{{#if loi25Show}} et auto-évaluation Loi 25{{/if}}.</p>
 
       <div class="R-cover-client">
         <div class="R-cover-client-lbl">Préparé pour</div>
@@ -219,87 +219,7 @@
 </div>
 {{/each}}
 
-{{!-- ════════════════ PAGE 6 — OPPORTUNITÉS DE FINANCEMENT ════════════════ --}}
-<div class="page">
-  <div class="R-inside">
-    <div class="R-running-head">
-      <div class="R-running-head-left">
-        <img src="{{assets.npLogo}}" alt="">
-        <span class="sep"></span>
-        <span>RADAR · {{meta.clientName}}</span>
-      </div>
-      <span class="pg">{{pad2 (add 6 0)}} / {{pad2 pagesTotal}}</span>
-    </div>
-
-    <div class="R-section-num R-funding-section-num">§ 07 — Opportunités de financement</div>
-    <h2 class="R-section-h R-funding-h">Programmes auxquels vous pourriez être admissible.</h2>
-
-    {{#if funding.profileMatch}}
-    <div class="R-funding-profile">
-      <b>Correspondance de profil</b> · {{funding.profileMatch}}
-    </div>
-    {{/if}}
-
-    {{#if funding.eligible.length}}
-    <div class="R-funding-eye">
-      <span class="R-funding-mark"></span>
-      Programmes pour lesquels vous pourriez être admissible
-    </div>
-    <div class="R-funding-grid">
-      {{#each funding.eligible}}
-      <div class="R-funding-row">
-        <div>
-          <div class="R-funding-name">{{name}}</div>
-          <div class="R-funding-desc">{{desc}}</div>
-          {{#if note}}
-          <div class="R-funding-note"><b>Note</b> · {{note}}</div>
-          {{/if}}
-        </div>
-        <div class="R-funding-amount">
-          <div class="R-funding-amount-val">{{amount}}</div>
-          {{#if verified}}<div class="R-funding-verified"><b>Vérifié</b> · {{verified}}</div>{{/if}}
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}}
-
-    {{#if funding.investigate.length}}
-    <div class="R-funding-eye investigate">
-      <span class="R-funding-mark"></span>
-      À approfondir
-    </div>
-    <div class="R-funding-grid">
-      {{#each funding.investigate}}
-      <div class="R-funding-row">
-        <div>
-          <div class="R-funding-name">{{name}}</div>
-          <div class="R-funding-desc">{{desc}}</div>
-          {{#if note}}
-          <div class="R-funding-note"><b>Note</b> · {{note}}</div>
-          {{/if}}
-        </div>
-        <div class="R-funding-amount">
-          <div class="R-funding-amount-val">{{amount}}</div>
-          {{#if verified}}<div class="R-funding-verified"><b>Vérifié</b> · {{verified}}</div>{{/if}}
-        </div>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}}
-
-    <p class="R-funding-disclaimer">
-      L'admissibilité est indicative seulement. Les modalités et la disponibilité des programmes doivent être confirmées auprès de l'organisme concerné.
-    </p>
-
-    <div class="R-foot">
-      <div class="mark"><b>Nord Paradigm</b></div>
-      <span>info@nordparadigm.com</span>
-    </div>
-  </div>
-</div>
-
-{{!-- ════════════════ PAGE 7 — LOI 25 (Québec uniquement) ════════════════ --}}
+{{!-- ════════════════ PAGE 6 — LOI 25 (Québec uniquement) ════════════════ --}}
 {{#if loi25Show}}
 <div class="page">
   <div class="R-inside">
