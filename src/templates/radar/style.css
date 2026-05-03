@@ -1105,41 +1105,48 @@ html, body {
 }
 
 /* ═════════════════ LOI 25 LEGEND (Fix 2) ═════════════════ */
+/* Single-line strip — sized so the 5 bands plus the "Échelle" eye fit
+   inside the page's 166mm content width without wrapping. The Absent
+   row carries no pips on purpose: with all four pips empty the row
+   would just be a row of grey circles, which adds visual weight
+   without disambiguating the score. */
 .R-loi25-legend {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 4mm 6mm;
-  padding: 2.5mm 3mm;
+  gap: 3mm;
+  padding: 2mm 3mm;
   margin: 0 0 4mm 0;
   background: rgba(217, 212, 196, 0.18);
   border-left: 1.2mm solid var(--gold);
   font-family: var(--ff-body);
-  font-size: 7.5pt;
+  font-size: 7pt;
   color: var(--ink-soft);
 }
 .R-loi25-legend-eye {
   font-family: var(--ff-display);
   font-weight: 700;
-  font-size: 7pt;
+  font-size: 6.8pt;
   color: var(--gold);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  flex-shrink: 0;
 }
 .R-loi25-legend-item {
   display: inline-flex;
   align-items: center;
-  gap: 1.5mm;
+  gap: 1.2mm;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .R-loi25-legend-pips {
   display: inline-flex;
-  gap: 1.5pt;
+  gap: 1.2pt;
   align-items: center;
 }
 .R-loi25-legend-pips .R-pip {
-  width: 5pt;
-  height: 5pt;
+  width: 4.5pt;
+  height: 4.5pt;
 }
 @media print {
   .R-loi25-legend {
