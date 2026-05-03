@@ -36,6 +36,17 @@ const MATURITY_LABELS = {
   fr: { unaware: 'Non sensibilisé', exploring: 'Exploration', developing: 'En développement', implementing: 'En implémentation', optimizing: 'En optimisation' },
 };
 
+// Maturity-scale band metadata (Fix 5). The thresholds below match the
+// scoring engine in radar-app/src/utils/scoring.js getMaturityLevel().
+// Five bands, each shown on the page-1 maturity scale strip.
+const MATURITY_BANDS = [
+  { key: 'unaware',      range: '0–20%' },
+  { key: 'exploring',    range: '21–40%' },
+  { key: 'developing',   range: '41–60%' },
+  { key: 'implementing', range: '61–80%' },
+  { key: 'optimizing',   range: '81–100%' },
+];
+
 const LOI25_BAND_LABELS = {
   en: {
     significantExposure: 'Significant exposure',
@@ -127,13 +138,25 @@ export function buildRadarContext(payload) {
     bandLabel: MATURITY_LABELS[lang][d.maturityLabel] || d.maturityLabel,
     iso: d.iso,
     actions: (d.actions || []).map(a => ({
-      tier: a.tier,                        // 'priority' | 'next' | 'foundation'
+      tier: a.tier,                        // 'now' | 'quarter' | 'phase' (Fix 1)
       tierLabel: a.tierLabel || tierLabelFor(a.tier, lang),
+      tierHorizon: a.tierHorizon || tierHorizonFor(a.tier, lang),
       title: a.title,
       body: a.body,
       quickWin: a.quickWin,
       iso: a.iso,
     })),
+  }));
+
+  // Maturity scale (Fix 5): pass through 5 bands with localized labels and the
+  // current band marked as "here". Falls back to "exploring" if overall label
+  // is missing — matches the scoring engine's lowest non-null band.
+  const hereKey = overallLabelKey;
+  const maturityScale = MATURITY_BANDS.map(b => ({
+    key: b.key,
+    label: MATURITY_LABELS[lang][b.key] || b.key,
+    range: b.range,
+    here: b.key === hereKey,
   }));
 
   const priorities = (payload.priorityActions || []).map((p, idx) => ({
@@ -190,6 +213,7 @@ export function buildRadarContext(payload) {
     domains,
     domainPairs: pairDomains(domains),       // [[d0,d1],[d2,d3],[d4,d5]] for the 3-page split
     priorities,
+    maturityScale,                           // Fix 5: 5-band scale with current band marked
     loi25Show: showLoi25,
     loi25,
     pagesTotal: showLoi25 ? 6 : 5,           // page-counter total (cover not counted)
@@ -197,16 +221,38 @@ export function buildRadarContext(payload) {
 }
 
 function tierLabelFor(tier, lang) {
+  // Time-horizon tiers (Fix 1) — primary set used by the report today.
   if (lang === 'fr') {
-    return tier === 'priority' ? 'Priorité actuelle'
-      : tier === 'next' ? 'Étape suivante'
-      : tier === 'foundation' ? 'Fondation'
-      : tier;
+    if (tier === 'now') return 'Maintenant';
+    if (tier === 'quarter') return 'Ce trimestre';
+    if (tier === 'phase') return 'Prochaine phase';
+    // Legacy tiers — kept so older payloads still render until callers migrate.
+    if (tier === 'priority') return 'Priorité actuelle';
+    if (tier === 'next') return 'Étape suivante';
+    if (tier === 'foundation') return 'Fondation';
+    return tier;
   }
-  return tier === 'priority' ? 'Current Priority'
-    : tier === 'next' ? 'Next Step'
-    : tier === 'foundation' ? 'Foundation'
-    : tier;
+  if (tier === 'now') return 'Now';
+  if (tier === 'quarter') return 'This Quarter';
+  if (tier === 'phase') return 'Next Phase';
+  if (tier === 'priority') return 'Current Priority';
+  if (tier === 'next') return 'Next Step';
+  if (tier === 'foundation') return 'Foundation';
+  return tier;
+}
+
+// Human-readable time horizon shown under the tier label (Fix 1).
+function tierHorizonFor(tier, lang) {
+  if (lang === 'fr') {
+    if (tier === 'now') return '0–30 jours';
+    if (tier === 'quarter') return '1–3 mois';
+    if (tier === 'phase') return '3–6 mois';
+    return null;
+  }
+  if (tier === 'now') return '0–30 days';
+  if (tier === 'quarter') return '1–3 months';
+  if (tier === 'phase') return '3–6 months';
+  return null;
 }
 
 function pairDomains(domains) {

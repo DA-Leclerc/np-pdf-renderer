@@ -94,6 +94,20 @@
       </div>
     </div>
 
+    {{!-- Échelle de maturité IA — Fix 5 --}}
+    <div class="R-maturity-scale">
+      <div class="R-maturity-scale-eye">Échelle de maturité IA</div>
+      <div class="R-maturity-scale-bar">
+        {{#each maturityScale}}
+        <div class="R-maturity-band {{#if here}}here{{/if}}">
+          <div class="R-maturity-band-label">{{label}}</div>
+          <div class="R-maturity-band-range">{{range}}</div>
+          {{#if here}}<div class="R-maturity-band-marker">Vous êtes ici</div>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
     <div class="R-summary-eye">§ 02 — Notes par domaine</div>
     <h3 class="R-summary-title">Six domaines, six notes.</h3>
 
@@ -134,7 +148,10 @@
 
     <div class="R-section-num">§ 03 — Trois actions prioritaires</div>
     <h2 class="R-section-h">Par où commencer.</h2>
-    <p class="R-section-sub">Les trois mouvements à plus fort levier, tirés de votre évaluation en six domaines. Chacun associe l'intention stratégique à une action rapide concrète, à mener ce trimestre.</p>
+    <p class="R-section-sub">Les trois mouvements à plus fort levier, tirés de votre évaluation en six domaines. Chaque action correspond à la première étape (« Maintenant ») du domaine concerné, à enclencher dans les 30 prochains jours.</p>
+    <p class="R-section-criterion">
+      <b>Critère de sélection</b> · Les trois domaines aux scores les plus faibles. En cas d'égalité de score, l'ordre suit la séquence d'évaluation du référentiel (Stratégie, Gouvernance, Personnel, Données, Outils, Éthique).
+    </p>
 
     <div class="R-priority-stack">
       {{#each priorities}}
@@ -153,6 +170,10 @@
       </div>
       {{/each}}
     </div>
+
+    <p class="R-iso-note">
+      <em>Note ·</em> Les références ISO/IEC 42001 citées dans ce rapport figurent dans leur formulation anglaise officielle ; la traduction française officielle de la norme n'est pas publiée à ce jour par l'ISO.
+    </p>
 
     <div class="R-foot">
       <div class="mark"><b>Nord Paradigm</b></div>
@@ -174,7 +195,7 @@
       <span class="pg">{{pad2 (add @index 3)}} / {{pad2 ../pagesTotal}}</span>
     </div>
 
-    <div class="R-section-num">§ {{add @index 4}} — Détail des domaines ({{add @index 1}} sur 3)</div>
+    <div class="R-section-num">§ {{pad2 (add @index 4)}} — Détail des domaines ({{add @index 1}} sur 3)</div>
     <h2 class="R-section-h">{{#each this}}{{#if this}}{{#unless @first}} · {{/unless}}{{name}}{{/if}}{{/each}}.</h2>
 
     <div class="R-domain-grid">
@@ -193,7 +214,10 @@
 
           {{#each actions}}
           <div class="R-action-tier">
-            <div class="R-action-tier-tag {{tier}}">{{tierLabel}}</div>
+            <div class="R-action-tier-tag {{tier}}">
+              <span class="R-action-tier-tag-label">{{tierLabel}}</span>
+              {{#if tierHorizon}}<span class="R-action-tier-tag-horizon">{{tierHorizon}}</span>{{/if}}
+            </div>
             <div class="R-action-tier-content">
               <div class="R-action-tier-title">{{title}}</div>
               {{#if body}}<div class="R-action-tier-body">{{body}}</div>{{/if}}
@@ -232,8 +256,18 @@
       <span class="pg">{{pad2 pagesTotal}} / {{pad2 pagesTotal}}</span>
     </div>
 
-    <div class="R-section-num">§ 08 — Loi 25 — Obligations québécoises en vie privée</div>
+    <div class="R-section-num">§ 07 — Loi 25 — Obligations québécoises en vie privée</div>
     <h2 class="R-section-h">Auto-évaluation de la préparation à la vie privée.</h2>
+
+    {{!-- Légende des pastilles — Fix 2 --}}
+    <div class="R-loi25-legend">
+      <span class="R-loi25-legend-eye">Échelle</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip on"></span></span>Conforme (4/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip"></span></span>Largement aligné (3/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip"></span><span class="R-pip"></span></span>Partiel (2/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip"></span><span class="R-pip"></span><span class="R-pip"></span></span>Écart majeur (1/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip"></span><span class="R-pip"></span><span class="R-pip"></span><span class="R-pip"></span></span>Absent (0/4)</span>
+    </div>
 
     <div class="R-loi25-verdict">
       <div>
