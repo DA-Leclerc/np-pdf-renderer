@@ -94,6 +94,20 @@
       </div>
     </div>
 
+    {{!-- AI maturity scale — Fix 5 --}}
+    <div class="R-maturity-scale">
+      <div class="R-maturity-scale-eye">AI Maturity Scale</div>
+      <div class="R-maturity-scale-bar">
+        {{#each maturityScale}}
+        <div class="R-maturity-band {{#if here}}here{{/if}}">
+          <div class="R-maturity-band-label">{{label}}</div>
+          <div class="R-maturity-band-range">{{range}}</div>
+          {{#if here}}<div class="R-maturity-band-marker">You are here</div>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
     <div class="R-summary-eye">§ 02 — Domain Scores</div>
     <h3 class="R-summary-title">Six domains, six scores.</h3>
 
@@ -134,7 +148,10 @@
 
     <div class="R-section-num">§ 03 — Top 3 Priority Actions</div>
     <h2 class="R-section-h">Where to start.</h2>
-    <p class="R-section-sub">The three highest-leverage moves drawn from your six-domain assessment. Each pairs the strategic intent with a concrete, low-friction quick win you can run this quarter.</p>
+    <p class="R-section-sub">The three highest-leverage moves drawn from your six-domain assessment. Each action corresponds to the first step ("Now") of the relevant domain, to begin within the next 30 days.</p>
+    <p class="R-section-criterion">
+      <b>Selection criterion</b> · The three lowest-scoring domains. When scores are tied, the order follows the assessment sequence (Strategy, Governance, People, Data, Tools, Ethics).
+    </p>
 
     <div class="R-priority-stack">
       {{#each priorities}}
@@ -174,7 +191,7 @@
       <span class="pg">{{pad2 (add @index 3)}} / {{pad2 ../pagesTotal}}</span>
     </div>
 
-    <div class="R-section-num">§ {{add @index 4}} — Domain detail ({{add @index 1}} of 3)</div>
+    <div class="R-section-num">§ {{pad2 (add @index 4)}} — Domain detail ({{add @index 1}} of 3)</div>
     <h2 class="R-section-h">{{#each this}}{{#if this}}{{#unless @first}} · {{/unless}}{{name}}{{/if}}{{/each}}.</h2>
 
     <div class="R-domain-grid">
@@ -193,7 +210,10 @@
 
           {{#each actions}}
           <div class="R-action-tier">
-            <div class="R-action-tier-tag {{tier}}">{{tierLabel}}</div>
+            <div class="R-action-tier-tag {{tier}}">
+              <span class="R-action-tier-tag-label">{{tierLabel}}</span>
+              {{#if tierHorizon}}<span class="R-action-tier-tag-horizon">{{tierHorizon}}</span>{{/if}}
+            </div>
             <div class="R-action-tier-content">
               <div class="R-action-tier-title">{{title}}</div>
               {{#if body}}<div class="R-action-tier-body">{{body}}</div>{{/if}}
@@ -232,8 +252,18 @@
       <span class="pg">{{pad2 pagesTotal}} / {{pad2 pagesTotal}}</span>
     </div>
 
-    <div class="R-section-num">§ 08 — Loi 25 — Quebec Privacy Obligations</div>
+    <div class="R-section-num">§ 07 — Loi 25 — Quebec Privacy Obligations</div>
     <h2 class="R-section-h">Privacy readiness self-assessment.</h2>
+
+    {{!-- Pip legend — Fix 2 --}}
+    <div class="R-loi25-legend">
+      <span class="R-loi25-legend-eye">Scale</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip on"></span></span>Compliant (4/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip"></span></span>Largely aligned (3/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip on"></span><span class="R-pip"></span><span class="R-pip"></span></span>Partial (2/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip on"></span><span class="R-pip"></span><span class="R-pip"></span><span class="R-pip"></span></span>Major gap (1/4)</span>
+      <span class="R-loi25-legend-item"><span class="R-loi25-legend-pips"><span class="R-pip"></span><span class="R-pip"></span><span class="R-pip"></span><span class="R-pip"></span></span>Absent (0/4)</span>
+    </div>
 
     <div class="R-loi25-verdict">
       <div>

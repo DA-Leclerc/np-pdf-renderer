@@ -361,7 +361,7 @@ html, body {
   font-style: italic;
   line-height: 1.45;
   max-width: 145mm;
-  margin: 0 0 7mm 0;
+  margin: 0 0 4mm 0;
 }
 
 /* ═════════════════ EXECUTIVE SUMMARY — overall verdict ═════════════════ */
@@ -369,9 +369,9 @@ html, body {
   display: grid;
   grid-template-columns: 70mm 1fr;
   gap: 10mm;
-  padding: 7mm 0;
+  padding: 4mm 0 5mm;
   border-bottom: 0.5pt solid var(--rule);
-  margin-bottom: 6mm;
+  margin-bottom: 3mm;
   position: relative;
 }
 .R-verdict::before {
@@ -394,30 +394,30 @@ html, body {
 .R-verdict-level {
   font-family: var(--ff-display);
   font-weight: 700;
-  font-size: 28pt;
+  font-size: 22pt;
   color: var(--ink);
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.05;
 }
 .R-verdict-pct {
   font-family: var(--ff-display);
   font-weight: 700;
-  font-size: 16pt;
+  font-size: 14pt;
   color: var(--gold);
-  margin-top: 2mm;
+  margin-top: 1.5mm;
   letter-spacing: -0.01em;
 }
 .R-verdict-right {
   font-family: var(--ff-serif);
-  font-size: 12pt;
+  font-size: 11pt;
   color: var(--ink);
-  line-height: 1.5;
+  line-height: 1.45;
   font-weight: 400;
   padding-left: 8mm;
   border-left: 0.5pt solid var(--rule);
   display: flex;
   flex-direction: column;
-  gap: 4mm;
+  gap: 2.5mm;
 }
 .R-verdict-right strong { font-weight: 600; }
 .R-verdict-strength {
@@ -443,10 +443,10 @@ html, body {
 .R-summary-title {
   font-family: var(--ff-display);
   font-weight: 700;
-  font-size: 16pt;
+  font-size: 14pt;
   color: var(--ink);
   letter-spacing: -0.015em;
-  margin: 0 0 5mm 0;
+  margin: 0 0 3mm 0;
 }
 .R-summary-grid {
   display: grid;
@@ -454,7 +454,7 @@ html, body {
   gap: 0;
   position: relative;
   padding-top: 4pt;
-  margin-bottom: 8mm;
+  margin-bottom: 4mm;
 }
 .R-summary-grid::before {
   content: '';
@@ -464,12 +464,12 @@ html, body {
   background: linear-gradient(90deg, var(--gold) 0%, var(--gold) 35%, var(--teal) 100%);
 }
 .R-domain-card {
-  padding: 4mm 6mm 4mm 0;
+  padding: 3mm 6mm 3mm 0;
   border-right: 0.5pt solid var(--rule);
   border-bottom: 0.5pt dotted var(--rule);
   display: flex;
   flex-direction: column;
-  gap: 1.5mm;
+  gap: 1mm;
 }
 .R-domain-card:nth-child(2n) { padding-left: 6mm; padding-right: 0; border-right: 0; }
 .R-domain-card:nth-last-child(-n+2) { border-bottom: 0; padding-bottom: 0; }
@@ -710,6 +710,22 @@ html, body {
 .R-action-tier-tag.priority    { color: var(--rust); }
 .R-action-tier-tag.next        { color: var(--gold); }
 .R-action-tier-tag.foundation  { color: var(--teal); }
+/* Time-horizon tiers (Fix 1): now/quarter/phase semantic */
+.R-action-tier-tag.now         { color: var(--rust); }
+.R-action-tier-tag.quarter     { color: var(--ochre); }
+.R-action-tier-tag.phase       { color: var(--teal); }
+.R-action-tier-tag-label       { display: block; }
+.R-action-tier-tag-horizon {
+  display: block;
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 6.8pt;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+  color: var(--ink-mute);
+  margin-top: 0.5mm;
+}
 .R-action-tier-content { display: flex; flex-direction: column; gap: 1.5mm; }
 .R-action-tier-title {
   font-family: var(--ff-display);
@@ -976,6 +992,159 @@ html, body {
   margin-top: 3mm;
   padding-top: 2mm;
   border-top: 0.5pt solid var(--rule);
+}
+
+/* ═════════════════ AI MATURITY SCALE (Fix 5) ═════════════════ */
+/* Compact 5-band horizontal strip. Sized so it fits below the verdict
+   block without pushing the §02 card grid off the page; the bands are
+   short captions, not paragraph blocks. */
+.R-maturity-scale {
+  margin: 3mm 0 4mm 0;
+  position: relative;
+}
+.R-maturity-scale-eye {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 7.5pt;
+  color: var(--gold);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+.R-maturity-scale-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2mm;
+}
+.R-maturity-band {
+  position: relative;
+  padding: 2mm 2mm 1.8mm;
+  background: rgba(217, 212, 196, 0.18);
+  border-top: 1.6pt solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3mm;
+}
+.R-maturity-band.here {
+  background: rgba(184, 144, 60, 0.10);
+  border-top: 1.6pt solid var(--gold);
+}
+.R-maturity-band-label {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 7.8pt;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+}
+.R-maturity-band.here .R-maturity-band-label { color: var(--ink); }
+.R-maturity-band-range {
+  font-family: var(--ff-display);
+  font-size: 6.5pt;
+  color: var(--ink-mute);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.R-maturity-band-marker {
+  margin-top: 1mm;
+  font-family: var(--ff-display);
+  font-size: 5.8pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 0.8mm;
+  border-top: 0.5pt dotted var(--gold);
+}
+@media print {
+  .R-maturity-band {
+    background-image: linear-gradient(rgba(217,212,196,0.18), rgba(217,212,196,0.18)) !important;
+  }
+  .R-maturity-band.here {
+    background-image: linear-gradient(rgba(184,144,60,0.10), rgba(184,144,60,0.10)) !important;
+  }
+}
+
+/* ═════════════════ ISO TRANSLATION NOTE (Fix 6, FR only) ═════════════════ */
+.R-iso-note {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-size: 7.5pt;
+  color: var(--ink-mute);
+  line-height: 1.4;
+  margin: 0 0 0 0;
+  padding-top: 1.5mm;
+  max-width: 170mm;
+}
+
+/* ═════════════════ §03 SELECTION CRITERION (Fix 7) ═════════════════ */
+.R-section-criterion {
+  font-family: var(--ff-body);
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: -3mm 0 6mm 0;
+  padding: 2.5mm 3.5mm;
+  background: rgba(13, 26, 45, 0.04);
+  border-left: 1.2mm solid var(--ink-mute);
+  max-width: 165mm;
+}
+.R-section-criterion b {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-right: 1mm;
+}
+@media print {
+  .R-section-criterion {
+    background-image: linear-gradient(rgba(13,26,45,0.04), rgba(13,26,45,0.04)) !important;
+  }
+}
+
+/* ═════════════════ LOI 25 LEGEND (Fix 2) ═════════════════ */
+.R-loi25-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4mm 6mm;
+  padding: 2.5mm 3mm;
+  margin: 0 0 4mm 0;
+  background: rgba(217, 212, 196, 0.18);
+  border-left: 1.2mm solid var(--gold);
+  font-family: var(--ff-body);
+  font-size: 7.5pt;
+  color: var(--ink-soft);
+}
+.R-loi25-legend-eye {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 7pt;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.R-loi25-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5mm;
+  white-space: nowrap;
+}
+.R-loi25-legend-pips {
+  display: inline-flex;
+  gap: 1.5pt;
+  align-items: center;
+}
+.R-loi25-legend-pips .R-pip {
+  width: 5pt;
+  height: 5pt;
+}
+@media print {
+  .R-loi25-legend {
+    background-image: linear-gradient(rgba(217,212,196,0.18), rgba(217,212,196,0.18)) !important;
+  }
 }
 
 /* ═════════════════ FOOTER (shared) ═════════════════ */
