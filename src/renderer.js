@@ -45,12 +45,48 @@ function registerHelpers() {
   helpersRegistered = true;
 }
 
+// Allowlist of products this renderer will load templates for.
+// product + language flow into path.resolve(); without an allowlist a caller
+// passing `product: '../../etc'` would walk out of TEMPLATES_ROOT and feed
+// arbitrary files to Handlebars.compile (template-injection on env / config)
+// or base64-embed them as PDF assets. The allowlist + path-prefix re-check
+// closes the path-traversal vector even if a future caller forwards
+// request data into these arguments.
+const ALLOWED_PRODUCTS = new Set(['radar']);
+const ALLOWED_LANGUAGE_RE = /^[a-z]{2}(-[A-Z]{2})?$/;
+
+function assertSafeProduct(product) {
+  if (!ALLOWED_PRODUCTS.has(product)) {
+    throw new Error(`Unknown product: ${product}`);
+  }
+}
+
+function assertSafeLanguage(language) {
+  if (!ALLOWED_LANGUAGE_RE.test(language)) {
+    throw new Error(`Invalid language: ${language}`);
+  }
+}
+
+function assertInsideTemplatesRoot(p) {
+  // resolve() normalizes "../" sequences. After normalization, the path must
+  // still begin with TEMPLATES_ROOT + separator (or equal it). Belt-and-
+  // suspenders on top of the allowlist.
+  const sep = TEMPLATES_ROOT.endsWith('/') || TEMPLATES_ROOT.endsWith('\\') ? '' : '/';
+  if (!p.startsWith(TEMPLATES_ROOT + sep) && p !== TEMPLATES_ROOT) {
+    throw new Error('Resolved path escapes templates root');
+  }
+}
+
 async function loadTemplate(product, language) {
+  assertSafeProduct(product);
+  assertSafeLanguage(language);
   const key = `${product}:${language}`;
   if (templateCache.has(key)) return templateCache.get(key);
   registerHelpers();
   const tplPath = resolve(TEMPLATES_ROOT, product, `${language}.hbs`);
   const cssPath = resolve(TEMPLATES_ROOT, product, 'style.css');
+  assertInsideTemplatesRoot(tplPath);
+  assertInsideTemplatesRoot(cssPath);
   const [tpl, css] = await Promise.all([
     readFile(tplPath, 'utf8'),
     readFile(cssPath, 'utf8'),
@@ -64,7 +100,12 @@ async function loadTemplate(product, language) {
 // Read an asset (PNG/SVG/etc) and return a data URI that can be
 // inlined directly into <img src="..."> or background-image: url(...).
 async function assetDataUri(product, name) {
+  assertSafeProduct(product);
+  if (typeof name !== 'string' || name.includes('..') || name.includes('/') || name.includes('\\')) {
+    throw new Error(`Invalid asset name: ${name}`);
+  }
   const path = resolve(TEMPLATES_ROOT, product, 'assets', name);
+  assertInsideTemplatesRoot(path);
   const buf = await readFile(path);
   // PNG content-type for the cases we currently use
   return `data:image/png;base64,${buf.toString('base64')}`;
@@ -85,8 +126,17 @@ async function getBrowser({ executablePath } = {}) {
   //    them you hit libnss3 / GPU / sandbox failures.
   if (process.env.PUPPETEER_EXECUTABLE_PATH || executablePath) {
     const exec = executablePath || process.env.PUPPETEER_EXECUTABLE_PATH;
+    // Sandbox flags are gated behind PUPPETEER_DEV_MODE=1 so a routine
+    // production deploy that happens to set PUPPETEER_EXECUTABLE_PATH (a
+    // standard Puppeteer override) does not silently disable the Chromium
+    // sandbox. Sandbox is the load-bearing defense against an HTML-injection
+    // bug escalating to host-level RCE.
+    const baseArgs = ['--font-render-hinting=none', '--disable-gpu'];
+    const devSandboxFlags = process.env.PUPPETEER_DEV_MODE === '1'
+      ? ['--no-sandbox', '--disable-setuid-sandbox']
+      : [];
     browserPromise = puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none', '--disable-gpu'],
+      args: [...baseArgs, ...devSandboxFlags],
       executablePath: exec,
       headless: true,
     });
