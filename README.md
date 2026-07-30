@@ -1,8 +1,8 @@
 # @nordparadigm/pdf-renderer
 
-Shared PDF rendering pipeline for Nord Paradigm's product suite (Radar, Brèche, future).
+Shared PDF rendering pipeline for Nord Paradigm's product suite (Radar, Breach, future).
 
-Pure HTML → PDF via headless Chromium. Real web fonts, vector text, gradient fidelity, A4 print-ready output. Same architecture pattern as Brèche; first product wired in is Radar.
+Pure HTML → PDF via headless Chromium. Real web fonts, vector text, gradient fidelity, A4 print-ready output. Same architecture pattern as Breach; first product wired in is Radar.
 
 ## Pipeline
 
